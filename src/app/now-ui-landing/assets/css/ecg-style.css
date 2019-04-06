@@ -1,0 +1,121 @@
+.navbar .navbar-brand {
+  font-size: 1.25em;
+}
+
+.navbar .navbar-nav .nav-link:not(.btn) {
+  font-size: 0.85em;
+}
+
+footer div nav ul li {
+  font-size: 0.8571em;
+  padding-bottom: 0.6em;
+}
+
+.carousel-inner {
+  height: 500px !important;
+}
+
+.carousel-inner > .carousel-item > img {
+  object-fit: cover;
+}
+
+.py-4 {
+  padding-top: 3rem!important;
+  padding-bottom: 0px !important;
+}
+
+.card {
+  margin-top: 20vh !important;
+  width: 80%;
+}
+
+.card .card-header {
+  background-color: #00A65A;
+  color: white;
+  text-align: center;
+  padding: 2vh 0vh 2vh 0vh;
+}
+
+.btn-round {
+  width: 100%;
+}
+
+.form-check {
+  text-align: center;
+}
+
+/* Customize the label (the container) */
+.form-check-label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 0.8571em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.form-check-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.form-check-label:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.form-check-label input:checked ~ .checkmark {
+  background-color:  #00A65A;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.form-check-label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.form-check-label .checkmark:after {
+  left: 7px;
+  top: 2px;
+  width: 8px;
+  height: 14px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.outProjectError {
+  background-color: #fa4e6a;
+}
+
+.outProjectSuccess {
+  background-color: #00A65A;
+}
