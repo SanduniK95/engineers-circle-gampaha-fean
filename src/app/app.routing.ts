@@ -10,9 +10,11 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AuthGuard } from "./auth.guard";
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { LandingComponent } from './landing/landing.component';
 
-const routes: Routes =[
-  { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
+const routes: Routes = [
+  { path: '', component: LandingComponent },
+  // { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
   { path: 'sign-in', component: SignInComponent },
   { path: 'register-user', component: SignUpComponent },
   // { path: 'dashboard', component: DashboardComponent },

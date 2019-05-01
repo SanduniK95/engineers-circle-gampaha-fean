@@ -30,6 +30,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AuthGuard } from './auth.guard';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   imports: [
@@ -53,6 +54,7 @@ import { AuthGuard } from './auth.guard';
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
+    LandingComponent,
 
   ],
   providers: [AuthGuard],
