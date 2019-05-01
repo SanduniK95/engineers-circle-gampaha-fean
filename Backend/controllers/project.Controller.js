@@ -7,7 +7,7 @@ module.exports.addProject = (req, res, err) => {
     projectName: req.body.projectName,
     date: req.body.date,
     venue: req.body.venue,
-    discription: req.body.description
+    description: req.body.description
   }
   firebase.database().ref('Project').push(project, (err, doc) => {
     if (!err) {
@@ -36,14 +36,28 @@ module.exports.updateProject = (req, res, next) => {
 
 
 module.exports.getprojects = (req, res, next) => {
+  var projects=[]
   firebase.database().ref('Project').once('value', (snapshot) => {
-    res.send(snapshot)
+
+    snapshot.forEach(element => {
+      var project ={
+        projectId:element.key,
+        projectName:element.val().projectName,
+        date:element.val().date,
+        venue:element.val().venue,
+        description:element.val().description,
+      }
+      projects.push(project)
+    });
+    console.log(projects)
+    res.send(projects)
+   
   })
 }
 
 
 module.exports.deleteproject = (req, res, next) => {
-  firebase.database().ref('Project/' + req.body.projectId).remove((err) => {
+  firebase.database().ref('Project/' + req.params.projectId).remove((err) => {
     if (err) {
       res.send(err)
     }

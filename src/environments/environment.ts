@@ -5,6 +5,10 @@
 
 export const environment = {
   production: false,
+
+  apiBaseUrl: 'http://localhost:4000/api'
+};
+
   firebase: {
     apiKey: "AIzaSyBzlekLOg0_Y15S0Ve9tC1FpVKJymDRw8E",
     authDomain: "engineers-circle-gampaha-fean.firebaseapp.com",
@@ -14,3 +18,4 @@ export const environment = {
     messagingSenderId: "465713684074"
   }
 };
+

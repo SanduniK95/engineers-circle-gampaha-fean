@@ -1,276 +1,105 @@
 <div class="main-content">
   <div class="container-fluid">
       <div class="row">
+            <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header card-header-danger">
+                            <h4 class="card-title ">Add Project</h4>
+                            
+                        </div>
+
+
+                        
+
+
+                        <div class="example-container">
+                                <form #addprojectForm="ngForm" (ngSubmit)="addprojectForm.valid && onSubmit(addprojectForm)">
+                                <mat-form-field>
+                                  <input name="projectName" #projectName="ngModel" [(ngModel)]="projectservice.projectName" matInput placeholder="Project Name" required>
+                                </mat-form-field>
+                                <mat-form-field>
+                                        <input name="date" #date="ngModel" [(ngModel)]="projectservice.date" type="date" matInput placeholder="Date" required>
+                                </mat-form-field>
+                                <mat-form-field>
+                                        <input name="venue" #venue="ngModel" [(ngModel)]="projectservice.venue" matInput placeholder="Venue" required>
+                                      </mat-form-field>
+                                <mat-form-field>
+                                  <textarea name="description" #description="ngModel" [(ngModel)]="projectservice.description" matInput placeholder="description" required></textarea>
+                                  
+                                </mat-form-field>
+                               <div>
+                                    <button type="submit" mat-raised-button color="primary">Submit</button>
+                               </div>
+                               </form>
+                              
+                                
+                              </div>
+                              
+                        </div>
+                        
+                        
+                   
+            </div>
           <div class="col-md-12">
               <div class="card">
                   <div class="card-header card-header-danger">
-                      <h4 class="card-title ">Simple Table</h4>
-                      <p class="card-category"> Here is a subtitle for this table</p>
+                      <h4 class="card-title ">Project Table</h4>
+                     
                   </div>
                   <div class="card-body">
                       <div class="table-responsive">
                           <table class="table">
                               <thead class=" text-primary">
+                                  
                                   <th>
-                                      ID
+                                     Project Name
                                   </th>
                                   <th>
-                                      Name
+                                      Date
                                   </th>
                                   <th>
-                                      Country
+                                      Venue
                                   </th>
                                   <th>
-                                      City
+                                      description
                                   </th>
                                   <th>
-                                      Salary
-                                  </th>
+                                        delete
+                                    </th>
+                                    <th>
+                                        Update
+                                    </th>
                               </thead>
-                              <tbody>
-                                  <tr>
+                              <tbody  >
+                                  <tr *ngFor ="let r of Projects">
                                       <td>
-                                          1
-                                      </td>
-                                      <td>
-                                          Dakota Rice
+                                        {{r.projectName}}
                                       </td>
                                       <td>
-                                          Niger
+                                          {{r.date}}
                                       </td>
                                       <td>
-                                          Oud-Turnhout
-                                      </td>
-                                      <td class="text-primary">
-                                          $36,738
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          2
+                                          {{r.venue}}
                                       </td>
                                       <td>
-                                          Minerva Hooper
-                                      </td>
-                                      <td>
-                                          Curaçao
-                                      </td>
-                                      <td>
-                                          Sinaai-Waas
-                                      </td>
-                                      <td class="text-primary">
-                                          $23,789
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          3
-                                      </td>
-                                      <td>
-                                          Sage Rodriguez
-                                      </td>
-                                      <td>
-                                          Netherlands
-                                      </td>
-                                      <td>
-                                          Baileux
-                                      </td>
-                                      <td class="text-primary">
-                                          $56,142
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          4
-                                      </td>
-                                      <td>
-                                          Philip Chaney
-                                      </td>
-                                      <td>
-                                          Korea, South
-                                      </td>
-                                      <td>
-                                          Overland Park
-                                      </td>
-                                      <td class="text-primary">
-                                          $38,735
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          5
-                                      </td>
-                                      <td>
-                                          Doris Greene
-                                      </td>
-                                      <td>
-                                          Malawi
-                                      </td>
-                                      <td>
-                                          Feldkirchen in Kärnten
-                                      </td>
-                                      <td class="text-primary">
-                                          $63,542
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          6
-                                      </td>
-                                      <td>
-                                          Mason Porter
-                                      </td>
-                                      <td>
-                                          Chile
-                                      </td>
-                                      <td>
-                                          Gloucester
-                                      </td>
-                                      <td class="text-primary">
-                                          $78,615
-                                      </td>
+                                        {{r.description}}
+                                    </td>
+                                    <td>
+                                            <i class="material-icons" (click)="onDelete(r.projectId)">delete</i>
+                                        </td>
+                                        <td>
+                                                <i class="material-icons">create</i>
+                                            </td>
+                                     
                                   </tr>
                               </tbody>
                           </table>
+                          
                       </div>
                   </div>
               </div>
           </div>
-          <div class="col-md-12">
-              <div class="card card-plain">
-                  <div class="card-header card-header-danger">
-                      <h4 class="card-title mt-0"> Table on Plain Background</h4>
-                      <p class="card-category"> Here is a subtitle for this table</p>
-                  </div>
-                  <div class="card-body">
-                      <div class="table-responsive">
-                          <table class="table table-hover">
-                              <thead class="">
-                                  <th>
-                                      ID
-                                  </th>
-                                  <th>
-                                      Name
-                                  </th>
-                                  <th>
-                                      Country
-                                  </th>
-                                  <th>
-                                      City
-                                  </th>
-                                  <th>
-                                      Salary
-                                  </th>
-                              </thead>
-                              <tbody>
-                                  <tr>
-                                      <td>
-                                          1
-                                      </td>
-                                      <td>
-                                          Dakota Rice
-                                      </td>
-                                      <td>
-                                          Niger
-                                      </td>
-                                      <td>
-                                          Oud-Turnhout
-                                      </td>
-                                      <td>
-                                          $36,738
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          2
-                                      </td>
-                                      <td>
-                                          Minerva Hooper
-                                      </td>
-                                      <td>
-                                          Curaçao
-                                      </td>
-                                      <td>
-                                          Sinaai-Waas
-                                      </td>
-                                      <td>
-                                          $23,789
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          3
-                                      </td>
-                                      <td>
-                                          Sage Rodriguez
-                                      </td>
-                                      <td>
-                                          Netherlands
-                                      </td>
-                                      <td>
-                                          Baileux
-                                      </td>
-                                      <td>
-                                          $56,142
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          4
-                                      </td>
-                                      <td>
-                                          Philip Chaney
-                                      </td>
-                                      <td>
-                                          Korea, South
-                                      </td>
-                                      <td>
-                                          Overland Park
-                                      </td>
-                                      <td>
-                                          $38,735
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          5
-                                      </td>
-                                      <td>
-                                          Doris Greene
-                                      </td>
-                                      <td>
-                                          Malawi
-                                      </td>
-                                      <td>
-                                          Feldkirchen in Kärnten
-                                      </td>
-                                      <td>
-                                          $63,542
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          6
-                                      </td>
-                                      <td>
-                                          Mason Porter
-                                      </td>
-                                      <td>
-                                          Chile
-                                      </td>
-                                      <td>
-                                          Gloucester
-                                      </td>
-                                      <td>
-                                          $78,615
-                                      </td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </div>
                   </div>
               </div>
           </div>
-      </div>
-  </div>
-</div>
+     

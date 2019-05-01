@@ -9,7 +9,7 @@ const Ctrlproject = require('../controllers/project.Controller')
 router.post('/addproject',Ctrlproject.addProject)
 router.put('/updateproject',Ctrlproject.updateProject)
 router.get('/getprojects',Ctrlproject.getprojects)
-router.delete('/deleteproject',Ctrlproject.deleteproject)
+router.delete('/deleteproject/:projectId',Ctrlproject.deleteproject)
 
 
 
