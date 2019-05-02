@@ -15,7 +15,7 @@ import { LandingComponent } from './landing/landing.component';
 const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'sign-in', component: SignInComponent },
-  { path: 'register-user', component: SignUpComponent },
+  { path: 'sign-up', component: SignUpComponent },
   // { path: 'dashboard', component: DashboardComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
