@@ -39,6 +39,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AuthGuard } from './auth.guard';
 import { LandingComponent } from './landing/landing.component';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   imports: [
@@ -70,7 +71,7 @@ import { LandingComponent } from './landing/landing.component';
     LandingComponent,
 
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
