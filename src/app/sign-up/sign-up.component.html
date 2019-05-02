@@ -1,30 +1,31 @@
-<div class="displayTable">
-  <div class="displayTableCell">
-    <div class="authBlock">
-      <h3>Sign Up</h3>
-      <div class="formGroup">
-        <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
+<div class="card text-center mx-auto" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Sign Up</h5>
+
+    <form>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email Address" #userEmail required>
       </div>
-      <div class="formGroup">
-        <input type="password" class="formControl" placeholder="Password" #userPwd required>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" #userPwd required>
       </div>
-      <div class="formGroup">
+      <div class="form-group">
         <input type="button" class="btn btnPrimary" value="Sign Up"
           (click)="authService.SignUp(userEmail.value, userPwd.value)">
       </div>
-      <div class="formGroup">
-        <span class="or"><span class="orInner">Or</span></span>
-      </div>
+
+      <div class="form-group dropdown-divider"></div>
+
       <!-- Continue with Google -->
-      <div class="formGroup">
-        <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
-          <i class="fab fa-google-plus-g"></i>
+      <div class="form-group">
+        <button type="button" class="btn btn-social btn-google" (click)="authService.GoogleAuth()">
+          <span class="fa fa-google"></span>
           Continue with Google
         </button>
       </div>
-    </div>
-    <div class="redirectToLogin">
-      <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
-    </div>
+      <div class="redirectToLogin">
+        <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
+      </div>
+    </form>
   </div>
 </div>
