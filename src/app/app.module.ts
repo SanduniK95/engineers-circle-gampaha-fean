@@ -6,7 +6,8 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule} from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {MatButtonModule} from '@angular/material/button';
 
@@ -53,7 +54,9 @@ import { AuthService } from './shared/services/auth.service';
     CommonModule,
     MatIconModule,
     MatFormFieldModule,
+    NgbModule,
     MatButtonModule,
+    MatDialogModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),
@@ -64,13 +67,16 @@ import { AuthService } from './shared/services/auth.service';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
     LandingComponent,
+    
 
   ],
+   
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })

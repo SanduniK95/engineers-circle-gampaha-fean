@@ -21,10 +21,11 @@ module.exports.addProject = (req, res, err) => {
 }
 
 module.exports.updateProject = (req, res, next) => {
-  firebase.database().ref('Project/' + req.body.projectId).update({
+  firebase.database().ref('Project/' + req.params.projectId).update({
     projectName: req.body.projectName,
     date: req.body.date,
     venue: req.body.venue,
+    description:req.body.description
   }, function (error) {
     if (error) {
       res.status(422).send(error)
