@@ -1,0 +1,12 @@
+//  Custom theme
+
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$ecg-theme-primary: mat-palette($mat-green);
+$ecg-theme-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+$ecg-app-theme: mat-light-theme($ecg-theme-primary, $ecg-theme-accent);
+
+@include angular-material-theme($ecg-app-theme);
