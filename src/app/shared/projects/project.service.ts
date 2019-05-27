@@ -21,7 +21,7 @@ export class ProjectService {
    return this.Http.post(environment.apiBaseUrl+'/addproject',Project)
   }
   updateproject(Project){
-    return this.Http.put(environment.apiBaseUrl+'/updateproject',Project)
+    return this.Http.put(environment.apiBaseUrl+'/updateproject/'+Project.projectId,Project)
 
   }
   getprojects(){
