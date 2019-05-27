@@ -1,15 +1,50 @@
 <div class="main-content">
-  <div class="container-fluid">
-      <div class="row">
+    <div class="container-fluid">
+        <div class="row">
             <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-header card-header-danger">
-                            <h4 class="card-title ">Add Project</h4>
-                            
-                        </div>
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Add Project</h4>
+
+                    </div>
 
 
-                        
+
+
+
+                    <div class="example-container">
+                        <form #addprojectForm="ngForm" (ngSubmit)="addprojectForm.valid && onSubmit(addprojectForm)">
+                            <mat-form-field>
+                                <input name="projectName" #projectName="ngModel"
+                                    [(ngModel)]="projectservice.projectName" matInput placeholder="Project Name"
+                                    required>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input name="date" #date="ngModel" [(ngModel)]="projectservice.date" type="date"
+                                    matInput placeholder="Date" required>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input name="venue" #venue="ngModel" [(ngModel)]="projectservice.venue" matInput
+                                    placeholder="Venue" required>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <textarea name="description" #description="ngModel"
+                                    [(ngModel)]="projectservice.description" matInput placeholder="description"
+                                    required></textarea>
+
+                            </mat-form-field>
+                            <div>
+                                <button type="submit" mat-raised-button color="primary">Submit</button>
+                            </div>
+                        </form>
+
+
+                    </div>
+
+                </div>
+
+
+                      
 
 
                         <div class="example-container">
@@ -40,51 +75,51 @@
                         
                    
             </div>
-          <div class="col-md-12">
-              <div class="card">
-                  <div class="card-header card-header-danger">
-                      <h4 class="card-title ">Project Table</h4>
-                     
-                  </div>
-                  <div class="card-body">
-                      <div class="table-responsive">
-                          <table class="table">
-                              <thead class=" text-primary">
-                                  
-                                  <th>
-                                     Project Name
-                                  </th>
-                                  <th>
-                                      Date
-                                  </th>
-                                  <th>
-                                      Venue
-                                  </th>
-                                  <th>
-                                      description
-                                  </th>
-                                  <th>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Project Table</h4>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+
+                                    <th>
+                                        Project Name
+                                    </th>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Venue
+                                    </th>
+                                    <th>
+                                        description
+                                    </th>
+                                    <th>
                                         delete
                                     </th>
                                     <th>
                                         Update
                                     </th>
-                              </thead>
-                              <tbody  >
-                                  <tr *ngFor ="let r of Projects">
-                                      <td>
-                                        {{r.projectName}}
-                                      </td>
-                                      <td>
-                                          {{r.date}}
-                                      </td>
-                                      <td>
-                                          {{r.venue}}
-                                      </td>
-                                      <td>
-                                        {{r.description}}
-                                    </td>
-                                    <td>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let r of Projects">
+                                        <td>
+                                            {{r.projectName}}
+                                        </td>
+                                        <td>
+                                            {{r.date}}
+                                        </td>
+                                        <td>
+                                            {{r.venue}}
+                                        </td>
+                                        <td>
+                                            {{r.description}}
+                                        </td>
+                                        <td>
                                             <i class="material-icons" (click)="onDelete(r.projectId)">delete</i>
                                         </td>
                                         <td>
@@ -138,4 +173,3 @@
                   </div>
               </div>
           </div>
-     
