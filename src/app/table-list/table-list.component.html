@@ -12,36 +12,6 @@
 
 
 
-                    <div class="example-container">
-                        <form #addprojectForm="ngForm" (ngSubmit)="addprojectForm.valid && onSubmit(addprojectForm)">
-                            <mat-form-field>
-                                <input name="projectName" #projectName="ngModel"
-                                    [(ngModel)]="projectservice.projectName" matInput placeholder="Project Name"
-                                    required>
-                            </mat-form-field>
-                            <mat-form-field>
-                                <input name="date" #date="ngModel" [(ngModel)]="projectservice.date" type="date"
-                                    matInput placeholder="Date" required>
-                            </mat-form-field>
-                            <mat-form-field>
-                                <input name="venue" #venue="ngModel" [(ngModel)]="projectservice.venue" matInput
-                                    placeholder="Venue" required>
-                            </mat-form-field>
-                            <mat-form-field>
-                                <textarea name="description" #description="ngModel"
-                                    [(ngModel)]="projectservice.description" matInput placeholder="description"
-                                    required></textarea>
-
-                            </mat-form-field>
-                            <div>
-                                <button type="submit" mat-raised-button color="primary">Submit</button>
-                            </div>
-                        </form>
-
-
-                    </div>
-
-                </div>
 
 
                       
@@ -171,5 +141,5 @@
               </div>
           </div>
                   </div>
-              </div>
+              
           </div>
