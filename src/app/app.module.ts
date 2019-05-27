@@ -41,6 +41,8 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AuthGuard } from './auth.guard';
 import { LandingComponent } from './landing/landing.component';
 import { AuthService } from './shared/services/auth.service';
+import { MemberDashboardComponent } from './member/member-dashboard/member-dashboard.component';
+import { MemberSidebarComponent } from './member/components/member-sidebar/member-sidebar.component';
 
 @NgModule({
   imports: [
@@ -73,6 +75,8 @@ import { AuthService } from './shared/services/auth.service';
     ForgotPasswordComponent,
     VerifyEmailComponent,
     LandingComponent,
+    MemberDashboardComponent,
+    MemberSidebarComponent,
     
 
   ],
