@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { MemberSidebarComponent } from './member-sidebar/member-sidebar.component';
+//import { MemberSidebarComponent } from './member-sidebar/member-sidebar.component';
 
 @NgModule({
   imports: [
@@ -16,7 +16,7 @@ import { MemberSidebarComponent } from './member-sidebar/member-sidebar.componen
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    MemberSidebarComponent
+    
   ],
   exports: [
     FooterComponent,
