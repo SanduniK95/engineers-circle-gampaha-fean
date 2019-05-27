@@ -64,6 +64,7 @@ export class TableListComponent implements OnInit {
     )
   }
   onUpdate(form:NgForm){
+    console.log(form.value)
     this.projectservice.updateproject(form.value).subscribe(
       res=>{
         Swal.fire(
