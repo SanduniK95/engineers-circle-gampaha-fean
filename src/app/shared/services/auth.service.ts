@@ -5,10 +5,13 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
 
+
+var isadmin :boolean
+
+
 @Injectable({
   providedIn: 'root'
 })
-
 export class AuthService {
   userData: any; // Save logged in user data
   constructor(
@@ -17,13 +20,27 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
-    /* Saving user data in localstorage when 
-    logged in and setting up null when logged out */
+    
     this.afAuth.authState.subscribe(user => {
       if (user) {
+      this.afs.collection('users').doc(user.uid).ref.get().then(function(doc) {
+
+      if (doc.exists) {
+    console.log("Document data:", doc.data());
+    isadmin=doc.data().isadmin
+  } else {
+    console.log("No such document!");
+  }
+}).catch(function(error) {
+  console.log("Error getting document:", error);
+});
+        const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+        console.log(userRef)
         this.userData = user;
+        console.log(this.userData.uid)
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
+        console.log(this.userData)
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
@@ -34,10 +51,16 @@ export class AuthService {
   SignIn(email, password) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
+        console.log(result)
         this.ngZone.run(() => {
+          if(isadmin){
           this.router.navigate(['dashboard']);
+          }
+          else{
+            this.router.navigate(['member'])
+          }
         });
-        this.SetUserData(result.user);
+      //  this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -49,7 +72,9 @@ export class AuthService {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
         this.SendVerificationMail();
+       // isadmin=false
         this.SetUserData(result.user);
+        
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -84,9 +109,14 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          if(isadmin){
+            this.router.navigate(['dashboard']);
+            }
+            else{
+              this.router.navigate(['member'])
+            }
         })
-        this.SetUserData(result.user);
+       // this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error)
       })
@@ -101,7 +131,8 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      emailVerified: user.emailVerified
+      emailVerified: user.emailVerified,
+      isadmin:false
     }
     return userRef.set(userData, {
       merge: true
