@@ -6,7 +6,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Router } from "@angular/router";
 
 
-var isadmin :boolean
+var isadmin: boolean
 
 
 @Injectable({
@@ -20,65 +20,112 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
-    
+
     this.afAuth.authState.subscribe(user => {
       if (user) {
-      this.afs.collection('users').doc(user.uid).ref.get().then(function(doc) {
 
-      if (doc.exists) {
-    console.log("Document data:", doc.data());
-    isadmin=doc.data().isadmin
-  } else {
-    console.log("No such document!");
-  }
-}).catch(function(error) {
-  console.log("Error getting document:", error);
-});
         const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-        console.log(userRef)
         this.userData = user;
-        console.log(this.userData.uid)
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
-        console.log(this.userData)
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }
     })
   }
-  // Sign in with email/password
+
+
+
+  cheackAdmin(uid) {
+    var isadmin
+    this.afs.collection('users').doc(uid).ref.get().then((doc) => {
+      var that = this
+
+      if (doc.exists) {
+
+
+        console.log(doc.data().isadmin)
+        if (doc.data().isadmin == true) {
+          that.router.navigate(['dashboard']);
+        }
+        else if (doc.data().isadmin == false) {
+          that.router.navigate(['member'])
+        }
+      } else {
+        console.log("No such document!");
+        return null
+      }
+    }).catch(function (error) {
+      console.log("Error getting document:", error);
+      return null
+    });
+    return isadmin
+  }
+
+
+
+
+  get isadminloggedin(): any {
+    var uid
+    if (JSON.parse(localStorage.getItem('user')) !== null) {
+      uid = (JSON.parse(localStorage.getItem('user')).uid)
+    }
+    var isadmin = this.afs.collection('users').doc(uid).ref.get().then((doc) => {
+
+      if (doc.exists) {
+        return doc.data().isadmin
+      } else {
+        console.log("No such document!");
+        return null
+      }
+    }).catch(function (error) {
+      console.log("Error getting document:", error);
+      return null
+    });
+    return isadmin
+  }
+
+
+
+
   SignIn(email, password) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-        console.log(result)
+        console.log(this.cheackAdmin(result.user.uid))
         this.ngZone.run(() => {
-          if(isadmin){
-          this.router.navigate(['dashboard']);
+          if (this.cheackAdmin(result.user.uid)) {
+            this.router.navigate(['dashboard']);
           }
-          else{
+          else {
             this.router.navigate(['member'])
           }
         });
-      //  this.SetUserData(result.user);
+        //  this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message)
       })
   }
-  // Sign up with email/password
+
+
+
+
+
   SignUp(email, password) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign 
-        up and returns promise */
+
         this.SendVerificationMail();
-       // isadmin=false
+        // isadmin=false
         this.SetUserData(result.user);
-        
+
       }).catch((error) => {
         window.alert(error.message)
       })
   }
+
+
+
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
     return this.afAuth.auth.currentUser.sendEmailVerification()
@@ -100,7 +147,7 @@ export class AuthService {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
-  // Sign in with Google
+
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider());
   }
@@ -109,14 +156,10 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((result) => {
         this.ngZone.run(() => {
-          if(isadmin){
-            this.router.navigate(['dashboard']);
-            }
-            else{
-              this.router.navigate(['member'])
-            }
+
+          this.cheackAdmin(result.user.uid)
         })
-       // this.SetUserData(result.user);
+        // this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error)
       })
@@ -132,7 +175,7 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
-      isadmin:false
+      isadmin: false
     }
     return userRef.set(userData, {
       merge: true
