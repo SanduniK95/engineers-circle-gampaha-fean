@@ -22,8 +22,9 @@ const routes: Routes = [
   { path: 'verify-email-address', component: VerifyEmailComponent },
   // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '', component: AdminLayoutComponent, children: [
-      { path: '', loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule' }
+      { path: '', loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'  }
     ]
+    ,canActivate:[AuthGuard]
   },
   {
     path :'member',component:MemberDashboardComponent
