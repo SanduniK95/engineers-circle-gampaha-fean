@@ -1,5 +1,6 @@
 
 var firebase = require("firebase");
+var moment = require('moment');
 
 
 module.exports.addProject = (req, res, err) => {
@@ -83,3 +84,45 @@ module.exports.deleteproject = (req, res, next) => {
 }
 
 
+
+module.exports.getcalenderdata = (req, res, next) => {
+  var projects=[]
+  var ref =firebase.firestore().collection('projects')
+  ref.get().then(snapshot => {
+    console.log(snapshot)
+    snapshot.forEach(doc => {
+     
+      
+         
+         var i =1
+       
+             var date =doc.data().date.toString()
+             var stime =doc.data().startTime.toString()
+             var etime =doc.data().endTime.toString()
+            var StartTime=moment(date +" " +stime,"YYYY-MM-DD HH:mm")
+            var EndTime =moment(date +" " +etime,"YYYY-MM-DD HH:mm")
+             var obj ={
+                 Id :i,
+                 Subject :doc.data().projectName,
+                 StartTime:StartTime.toDate(),
+                 EndTime:EndTime.toDate(),
+                 CategoryColor: '#7fa900'
+ 
+             }
+             console.log(obj)
+             
+ 
+             projects.push(obj)
+
+         i++
+  
+    
+        
+    
+      });
+     
+    console.log(projects)
+    res.send(projects)
+   
+  })
+}
