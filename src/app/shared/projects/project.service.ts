@@ -12,7 +12,9 @@ export class ProjectService {
      projectName:'',
      date :'',
      venue :'',
-     discription:''
+     discription:'',
+     startTime:'',
+     endTime:''
   }
 
   constructor(private Http :HttpClient) { }

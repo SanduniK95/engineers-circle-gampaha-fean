@@ -11,6 +11,7 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 
 import {
   MatButtonModule,
@@ -31,9 +32,11 @@ import {
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    ScheduleModule
   ],
   declarations: [
     DashboardComponent,
+
     UserProfileComponent,
     TableListComponent,
     TypographyComponent,

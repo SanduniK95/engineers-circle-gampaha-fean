@@ -30,6 +30,12 @@
                                   <textarea name="description" #description="ngModel" [(ngModel)]="projectservice.project.description" matInput placeholder="description" required></textarea>
                                   
                                 </mat-form-field>
+                                <mat-form-field>
+                                    <input name="startTime" #startTime="ngModel" [(ngModel)]="projectservice.project.startTime" type="time" matInput placeholder="startTime" required>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input name="endTime" #endTime="ngModel" [(ngModel)]="projectservice.project.endTime" type="time" matInput placeholder="endTime" required>
+                        </mat-form-field>
                                <div>
                                     <button type="submit" mat-raised-button color="primary">Submit</button>
                                </div>
@@ -67,11 +73,18 @@
                                         description
                                     </th>
                                     <th>
+                                        Start Time
+                                    </th>
+                                    <th>
+                                        End Time
+                                    </th>
+                                    <th>
                                         delete
                                     </th>
                                     <th>
                                         Update
                                     </th>
+                                    
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let r of Projects">
@@ -86,6 +99,12 @@
                                         </td>
                                         <td>
                                             {{r.description}}
+                                        </td>
+                                        <td>
+                                            {{r.startTime}}
+                                        </td>
+                                        <td>
+                                            {{r.endTime}}
                                         </td>
                                         <td>
                                             <i class="material-icons" (click)="onDelete(r.projectId)">delete</i>
@@ -122,6 +141,12 @@
                                           <textarea name="description" #description="ngModel" [(ngModel)]="project.description" matInput placeholder="description"  required></textarea>
                                           
                                         </mat-form-field>
+                                        <mat-form-field>
+                                            <input name="startTime" #startTime="ngModel" [(ngModel)]="project.startTime" type="time" matInput placeholder="startTime"  required>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <input name="endTime" #endTime="ngModel" [(ngModel)]="project.endTime" type="time" matInput placeholder="endTime"  required>
+                                </mat-form-field>
                                        <div>
                                             <button type="submit" mat-raised-button color="primary">Submit</button>
                                        </div>

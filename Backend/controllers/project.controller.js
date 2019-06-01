@@ -7,7 +7,9 @@ module.exports.addProject = (req, res, err) => {
     projectName: req.body.projectName,
     date: req.body.date,
     venue: req.body.venue,
-    description: req.body.description
+    description: req.body.description,
+    startTime:req.body.startTime,
+    endTime:req.body.endTime
   }
   firebase.firestore().collection('projects').add(project)
 .then(function(docRef) {
@@ -26,7 +28,9 @@ module.exports.updateProject = (req, res, next) => {
     projectName: req.body.projectName,
     date: req.body.date,
     venue: req.body.venue,
-    description:req.body.description
+    description:req.body.description,
+    startTime:req.body.startTime,
+    endTime:req.body.endTime
   })
   .then(function(docRef) {
     res.send({ messege: "suceess" })
@@ -50,6 +54,8 @@ module.exports.getprojects = (req, res, next) => {
         date:doc.data().date,
         venue:doc.data().venue,
         description:doc.data().description,
+        startTime:doc.data().startTime,
+    endTime:doc.data().endTime
       }
       projects.push(project)
     
