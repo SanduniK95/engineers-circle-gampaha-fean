@@ -94,12 +94,13 @@ export class AuthService {
       .then((result) => {
         console.log(this.cheackAdmin(result.user.uid))
         this.ngZone.run(() => {
-          if (this.cheackAdmin(result.user.uid)) {
-            this.router.navigate(['dashboard']);
-          }
-          else {
-            this.router.navigate(['member'])
-          }
+          // if (this.cheackAdmin(result.user.uid)) {
+          //   this.router.navigate(['dashboard']);
+          // }
+          // else if(!this.cheackAdmin(result.user.uid)) {
+          //   this.router.navigate(['member'])
+          // }
+          this.cheackAdmin(result.user.uid)
         });
         //  this.SetUserData(result.user);
       }).catch((error) => {
@@ -159,7 +160,7 @@ export class AuthService {
 
           this.cheackAdmin(result.user.uid)
         })
-        // this.SetUserData(result.user);
+         this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error)
       })

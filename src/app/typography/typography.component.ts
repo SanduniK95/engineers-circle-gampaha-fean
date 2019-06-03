@@ -20,10 +20,10 @@ export class TypographyComponent implements OnInit {
   constructor(private projectservice :ProjectService) { }
 
   ngOnInit() {
-
+console.log(this.dataManger)
   }
 
-  public selectedDate: Date = new Date(2019, 5, 5);
+  public selectedDate: Date = new Date(2019, 4, 5);
   public currentView: View = 'Month';
   public readonly: boolean = true;
   private dataManger: DataManager = new DataManager({
@@ -32,5 +32,6 @@ export class TypographyComponent implements OnInit {
       crossDomain: true
   });
   public eventSettings: EventSettingsModel = { dataSource: this.dataManger };
+  
 
 }

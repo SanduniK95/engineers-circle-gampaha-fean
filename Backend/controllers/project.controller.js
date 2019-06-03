@@ -24,7 +24,6 @@ module.exports.addProject = (req, res, err) => {
 }
 
 module.exports.updateProject = (req, res, next) => {
-  console.log(req.body)
   firebase.firestore().collection('projects').doc(req.params.projectId).update({
     projectName: req.body.projectName,
     date: req.body.date,
@@ -47,7 +46,6 @@ module.exports.getprojects = (req, res, next) => {
   var projects=[]
   var ref =firebase.firestore().collection('projects')
   ref.get().then(snapshot => {
-    console.log(snapshot)
     snapshot.forEach(doc => {
       var project ={
         projectId:doc.id,
@@ -64,7 +62,6 @@ module.exports.getprojects = (req, res, next) => {
     
       });
    
-    console.log(projects)
     res.send(projects)
    
   })
@@ -89,7 +86,6 @@ module.exports.getcalenderdata = (req, res, next) => {
   var projects=[]
   var ref =firebase.firestore().collection('projects')
   ref.get().then(snapshot => {
-    console.log(snapshot)
     snapshot.forEach(doc => {
      
       
@@ -109,7 +105,6 @@ module.exports.getcalenderdata = (req, res, next) => {
                  CategoryColor: '#7fa900'
  
              }
-             console.log(obj)
              
  
              projects.push(obj)
@@ -121,7 +116,6 @@ module.exports.getcalenderdata = (req, res, next) => {
     
       });
      
-    console.log(projects)
     res.send(projects)
    
   })
