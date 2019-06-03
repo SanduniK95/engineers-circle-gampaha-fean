@@ -43,6 +43,8 @@ import { LandingComponent } from './landing/landing.component';
 import { AuthService } from './shared/services/auth.service';
 import { MemberDashboardComponent } from './member/member-dashboard/member-dashboard.component';
 import { MemberSidebarComponent } from './member/components/member-sidebar/member-sidebar.component';
+import { HeaderComponent } from './head/header/header.component';
+import { FootComponent } from './head/foot/foot.component';
 
 @NgModule({
   imports: [
@@ -78,6 +80,8 @@ import { MemberSidebarComponent } from './member/components/member-sidebar/membe
     LandingComponent,
     MemberDashboardComponent,
     MemberSidebarComponent,
+    HeaderComponent,
+    FootComponent,
     
 
   ],
