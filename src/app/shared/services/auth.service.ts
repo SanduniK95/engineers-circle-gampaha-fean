@@ -38,7 +38,7 @@ export class AuthService {
 
 
   cheackAdmin(uid) {
-    var isadmin
+    var isadmin =
     this.afs.collection('users').doc(uid).ref.get().then((doc) => {
       var that = this
 
@@ -46,34 +46,12 @@ export class AuthService {
 
 
         console.log(doc.data().isadmin)
-        if (doc.data().isadmin == true) {
-          that.router.navigate(['dashboard']);
-        }
-        else if (doc.data().isadmin == false) {
-          that.router.navigate(['member-dashboard'])
-        }
-      } else {
-        console.log("No such document!");
-        return null
-      }
-    }).catch(function (error) {
-      console.log("Error getting document:", error);
-      return null
-    });
-    return isadmin
-  }
-
-
-
-
-  get isadminloggedin(): any {
-    var uid
-    if (JSON.parse(localStorage.getItem('user')) !== null) {
-      uid = (JSON.parse(localStorage.getItem('user')).uid)
-    }
-    var isadmin = this.afs.collection('users').doc(uid).ref.get().then((doc) => {
-
-      if (doc.exists) {
+        // if (doc.data().isadmin == true) {
+        //   that.router.navigate(['dashboard']);
+        // }
+        // else if (doc.data().isadmin == false) {
+        //   that.router.navigate(['member-dashboard'])
+        // }
         return doc.data().isadmin
       } else {
         console.log("No such document!");
@@ -89,18 +67,49 @@ export class AuthService {
 
 
 
+   get  isadminloggedin(): any {
+    var uid
+    if (JSON.parse(localStorage.getItem('user')) !== null) {
+      uid = (JSON.parse(localStorage.getItem('user')).uid)
+    }
+   return this.afs.collection('users').doc(uid).ref.get().then((doc) => {
+
+      if (doc.exists) {
+        return doc.data().isadmin
+      } else {
+        console.log("No such document!");
+        return null
+      }
+    }).catch(function (error) {
+      console.log("Error getting document:", error);
+      return null
+    });
+   
+  }
+
+
+
+
   SignIn(email, password) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         console.log(this.cheackAdmin(result.user.uid))
         this.ngZone.run(() => {
           // if (this.cheackAdmin(result.user.uid)) {
-          //   this.router.navigate(['dashboard']);
           // }
           // else if(!this.cheackAdmin(result.user.uid)) {
-          //   this.router.navigate(['member'])
           // }
-          this.cheackAdmin(result.user.uid)
+          this.cheackAdmin(result.user.uid).then(data=>{
+            console.log(data)
+            if(data){
+              this.router.navigate(['dashboard']);
+
+            }
+            else{
+              this.router.navigate(['member-dashboard'])
+
+            }
+          })
         });
         //  this.SetUserData(result.user);
       }).catch((error) => {
@@ -158,7 +167,17 @@ export class AuthService {
       .then((result) => {
         this.ngZone.run(() => {
 
-          this.cheackAdmin(result.user.uid)
+          this.cheackAdmin(result.user.uid).then(data=>{
+
+            if(data){
+              this.router.navigate(['dashboard']);
+
+            }
+            else{
+              this.router.navigate(['member-dashboard'])
+
+            }
+          })
         })
          this.SetUserData(result.user);
       }).catch((error) => {
