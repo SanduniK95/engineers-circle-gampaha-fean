@@ -21,13 +21,22 @@ console.log(this.authservice.isLoggedIn)
 this.router.navigate(['sign-in'])
 return false
     }else{
-      console.log(this.authservice.isadminloggedin)
-      if(!this.authservice.isadminloggedin){
-        this.router.navigate(['sign-in'])
-return false
-      }else{
-        return true
-      }
+     // console.log(this.authservice.isadminloggedin)
+    return this.authservice.isadminloggedin.then(data=>{
+        if(!data){
+          console.log(data)
+          this.router.navigate(['sign-in'])
+          return false
+        }
+        // else{
+        //   console.log(data)
+        //  // this.router.navigate(['dashboard'])
+        //   return true
+        // }
+        return data
+      })
+      
+      
 
     
     }
