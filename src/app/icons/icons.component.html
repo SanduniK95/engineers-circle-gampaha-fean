@@ -1,29 +1,104 @@
 
 <div class="main-content">
-  <div class="container-fluid">
-      <div class="card card-plain">
-          <div class="card-header card-header-danger">
-              <h4 class="card-title">Material Design Icons</h4>
-              <p class="card-category">Handcrafted by our friends from
-                  <a target="_blank" href="https://design.google.com/icons/">Google</a>
-              </p>
-          </div>
-          <div class="row">
-              <div class="col-md-12">
-                  <div class="card-body">
-                      <div class="iframe-container d-none d-lg-block">
-                          <iframe src="https://design.google.com/icons/">
-                              <p>Your browser does not support iframes.</p>
-                          </iframe>
-                      </div>
-                      <div class="col-md-12 d-none d-sm-block d-md-block d-lg-none d-block d-sm-none text-center ml-auto mr-auto">
-                          <h5>The icons are visible on Desktop mode inside an iframe. Since the iframe is not working on Mobile and Tablets please visit the icons on their original page on Google. Check the
-                              <a href="https://design.google.com/icons/" target="_blank">Material Icons</a>
-                          </h5>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+        <div class="container-fluid">
+            <div class="row">
+               
+                        
+
+                        <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header card-header-danger">
+                                        <h4 class="card-title ">Cusmoter Table</h4>
+                
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class=" text-primary">
+                
+                                                    <th>
+                                                        User Name
+                                                    </th>
+                                                    <th>
+                                                        Email
+                                                    </th>
+                                                  
+                                                    <th>
+                                                        delete
+                                                    </th>
+                                                    <th>
+                                                        Update
+                                                    </th>
+                                                    
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let r of Users">
+                                                        <td>
+                                                            {{r.UserName}}
+                                                        </td>
+                                                        <td>
+                                                            {{r.Email}}
+                                                        </td>
+                                                        
+                                                        <td>
+                                                            <i class="material-icons" (click)="onDelete(r.userId)">delete</i>
+                                                        </td>
+                                                        <td>
+                                                                <i class="material-icons"(click)="open(content,r)"  >create</i>
+                                                            </td>
+                                                     
+                                                  </tr>
+                                              </tbody>
+                                          </table>
+                                          <ng-template #content let-modal>
+                                                <div class="card-header card-header-danger">
+                                                        <h4 class="card-title ">Update User</h4>
+                                                        
+                                                    </div>
+                                              
+                                                <div class="example-container">
+                                                        <form #updateprojectForm="ngForm" (ngSubmit)="updateprojectForm.valid && onUpdate(updateprojectForm)">
+                                                                
+                                                                        <input name="userId" #id="ngModel" [(ngModel)]="User.userId" matInput placeholder="Project Name"  hidden>
+                                                                      
+                                                        <mat-form-field>
+                                                          <input name="UserName" #UserName="ngModel" [(ngModel)]="User.UserName" matInput placeholder="Project Name" value="njnjn" required>
+                                                        </mat-form-field>
+                    
+                                                        <mat-form-field>
+                                                                <input name="Email" #date="ngModel" [(ngModel)]="User.Email"  matInput placeholder="Email"  required>
+                                                        </mat-form-field>
+                                                        
+                                                       <div>
+                                                            <button type="submit" mat-raised-button color="primary">Submit</button>
+                                                       </div>
+                                                       </form>
+                                                      
+                                                        
+                                                      </div>
+                                                      
+                                               
+                                              </ng-template>
+                                         
+                                          
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+
+
+
+
+
+
+
+
+                       
+                        </div>
+                       </div>
+                       </div>
+                    
+
+
+                        

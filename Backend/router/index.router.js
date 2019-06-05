@@ -12,5 +12,7 @@ router.get('/getprojects',Ctrlproject.getprojects)
 router.delete('/deleteproject/:projectId',Ctrlproject.deleteproject)
 router.get('/getusers',Ctrluser.getusers)
 router.get('/getclaenderdata',Ctrlproject.getcalenderdata)
+router.put('/updateuser/:projectId',Ctrluser.updateUser)
+router.delete('/deleteuser/:projectId',Ctrluser.deleteuser)
 
 module.exports =router
