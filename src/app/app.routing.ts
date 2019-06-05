@@ -8,8 +8,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AuthGuard } from "./auth.guard";
-
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import {MemberLayoutComponent} from './layouts/member-layout/member-layout.component';
 import { LandingComponent } from './landing/landing.component';
 import { CanActivate } from '@angular/router/src/utils/preactivation';
 
@@ -27,17 +27,11 @@ const routes: Routes = [
     ,canActivate:[AuthGuard]
   },
   {
-    path :'member',component:MemberDashboardComponent
+    path :'',component:MemberLayoutComponent,children:[
+      {path:'', loadChildren:'./layouts/member-layout/member-layout.module#MemberLayoutModule'}
+    ]
   }
-    // { path: 'dashboard',      component: DashboardComponent },
-    // { path: 'user-profile',   component: UserProfileComponent },
-    // { path: 'table-list',     component: TableListComponent },
-    // { path: 'typography',     component: TypographyComponent },
-    // { path: 'icons',          component: IconsComponent },
-    // { path: 'maps',           component: MapsComponent },
-    // { path: 'notifications',  component: NotificationsComponent },
-    // { path: 'upgrade',        component: UpgradeComponent },
-    // { path: '',               redirectTo: 'dashboard', pathMatch: 'full' }
+
 ];
 
 @NgModule({

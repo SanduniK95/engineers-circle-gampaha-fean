@@ -50,7 +50,7 @@ export class AuthService {
           that.router.navigate(['dashboard']);
         }
         else if (doc.data().isadmin == false) {
-          that.router.navigate(['member'])
+          that.router.navigate(['member-dashboard'])
         }
       } else {
         console.log("No such document!");

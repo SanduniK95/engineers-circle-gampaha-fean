@@ -20,7 +20,7 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-
+import {MemberComponentsModule} from './member/member-components/member-component.module'
 import { AppComponent } from './app.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
@@ -41,8 +41,8 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AuthGuard } from './auth.guard';
 import { LandingComponent } from './landing/landing.component';
 import { AuthService } from './shared/services/auth.service';
-import { MemberDashboardComponent } from './member/member-dashboard/member-dashboard.component';
-import { MemberSidebarComponent } from './member/components/member-sidebar/member-sidebar.component';
+//import { MemberSidebarComponent } from './member/member-components/member-sidebar/member-sidebar.component';
+import { MemberLayoutComponent } from './layouts/member-layout/member-layout.component';
 
 @NgModule({
   imports: [
@@ -50,6 +50,7 @@ import { MemberSidebarComponent } from './member/components/member-sidebar/membe
     FormsModule,
     HttpModule,
     ComponentsModule,
+    MemberComponentsModule,
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
@@ -70,14 +71,13 @@ import { MemberSidebarComponent } from './member/components/member-sidebar/membe
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    
+    MemberLayoutComponent,
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
     LandingComponent,
-    MemberDashboardComponent,
-    MemberSidebarComponent,
+   
     
 
   ],
