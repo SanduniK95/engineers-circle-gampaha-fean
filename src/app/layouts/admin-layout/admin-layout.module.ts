@@ -36,7 +36,6 @@ import {
   ],
   declarations: [
     DashboardComponent,
-
     UserProfileComponent,
     TableListComponent,
     TypographyComponent,
