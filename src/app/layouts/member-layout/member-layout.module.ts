@@ -6,6 +6,7 @@ import { MemberLayoutRoutes } from './member-layout.routing';
 import {MemberDashboardComponent} from '../../member/member-dashboard/member-dashboard.component'
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import {ProjectCalenderComponent} from '../../member/project-calender/project-calender.component'
+import {PaymentComponent} from '../../payment/payment.component'
 import {
     MatButtonModule,
     MatInputModule,
@@ -27,11 +28,13 @@ import {
       MatInputModule,
       MatSelectModule,
       MatTooltipModule,
-      ScheduleModule
+      ScheduleModule,
+      
     ],
     declarations: [
         MemberDashboardComponent,
-        ProjectCalenderComponent
+        ProjectCalenderComponent,
+        PaymentComponent
     ]
 })
 
