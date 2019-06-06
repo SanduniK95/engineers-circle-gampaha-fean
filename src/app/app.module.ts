@@ -1,14 +1,14 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { CommonModule} from '@angular/common';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDialogModule} from '@angular/material/dialog';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatInputModule } from '@angular/material/input'
 import {MatButtonModule} from '@angular/material/button';
 
 // Firebase services + enviorment module
@@ -50,6 +50,7 @@ import { NavbarComponent } from './landing/navbar/navbar.component';
   imports: [
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     ComponentsModule,
     MemberComponentsModule,
@@ -60,7 +61,7 @@ import { NavbarComponent } from './landing/navbar/navbar.component';
     MatIconModule,
     MatFormFieldModule,
     NgbModule,
-    
+    MatInputModule,
     MatButtonModule,
     MatDialogModule,
     AgmCoreModule.forRoot({

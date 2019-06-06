@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-external-project',
@@ -12,4 +13,11 @@ export class ExternalProjectComponent implements OnInit {
   ngOnInit() {
   }
 
+  messageFormControl = new FormControl('',
+  Validators.required);
+  
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
 }
