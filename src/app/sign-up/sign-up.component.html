@@ -1,31 +1,47 @@
-<div class="card text-center mx-auto" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Sign Up</h5>
+<html>
 
-    <form>
-      <div class="form-group">
-        <input type="email" class="form-control" placeholder="Email Address" #userEmail required>
-      </div>
-      <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password" #userPwd required>
-      </div>
-      <div class="form-group">
-        <input type="button" class="btn btnPrimary" value="Sign Up"
-          (click)="authService.SignUp(userEmail.value, userPwd.value)">
-      </div>
+<head>
+  <!-- CSS Files -->
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
+  <link href="../assets/css/ecg-style.css" rel="stylesheet" />
+</head>
 
-      <div class="form-group dropdown-divider"></div>
+<body class="landing-page">
+  <!-- Navbar -->
+  <landing-navbar></landing-navbar>
 
-      <!-- Continue with Google -->
-      <div class="form-group">
-        <button type="button" class="btn btn-social btn-google" (click)="authService.GoogleAuth()">
-          <span class="fa fa-google"></span>
-          Continue with Google
-        </button>
-      </div>
-      <div class="redirectToLogin">
-        <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
-      </div>
-    </form>
+  <div class="card text-center mx-auto" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Sign Up</h5>
+
+      <form>
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Email Address" #userEmail required>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Password" #userPwd required>
+        </div>
+        <div class="form-group">
+          <input type="button" class="btn btnPrimary" value="Sign Up"
+            (click)="authService.SignUp(userEmail.value, userPwd.value)">
+        </div>
+
+        <div class="form-group dropdown-divider"></div>
+
+        <!-- Continue with Google -->
+        <div class="form-group">
+          <button type="button" class="btn btn-social btn-google" (click)="authService.GoogleAuth()">
+            <span class="fa fa-google"></span>
+            Continue with Google
+          </button>
+        </div>
+        <div class="redirectToLogin">
+          <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
+</body>
+
+</html>
