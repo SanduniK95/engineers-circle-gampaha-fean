@@ -43,6 +43,8 @@ import { LandingComponent } from './landing/landing.component';
 import { AuthService } from './shared/services/auth.service';
 //import { MemberSidebarComponent } from './member/member-components/member-sidebar/member-sidebar.component';
 import { MemberLayoutComponent } from './layouts/member-layout/member-layout.component';
+import { ExternalProjectComponent } from './external-project/external-project.component';
+import { NavbarComponent } from './landing/navbar/navbar.component';
 
 @NgModule({
   imports: [
@@ -77,6 +79,8 @@ import { MemberLayoutComponent } from './layouts/member-layout/member-layout.com
     ForgotPasswordComponent,
     VerifyEmailComponent,
     LandingComponent,
+    ExternalProjectComponent,
+    NavbarComponent,
    
     
 
