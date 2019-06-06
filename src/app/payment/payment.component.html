@@ -20,13 +20,13 @@
 
 
 
-     <h3>Drag and drop your recipt</h3>
+     <h3>Drag and drop your payment receipt</h3>
 
      <div class="file">
         <label class="file-label">
 
 
-        <input class="file-input" type="file" (change)="startUpload($event.target.files)">
+        <input  class="file-input" type="file" (change)="startUpload($event.target.files)">
 
 
           <span class="file-cta">
@@ -54,12 +54,12 @@
 
 
 <div *ngIf="snapshot | async as snap">
-  {{ snap.bytesTransferred } of {{ snap.totalBytes } 
+  
 
   <div *ngIf="downloadURL | async as url">
-    <h3>Results!</h3>
+    <h3>Sussefully Uploaded</h3>
     <img [src]="url"><br>
-    <a [href]="url" target="_blank" rel="noopener">Download Me!</a>
+    <a [href]="url" target="_blank" rel="noopener">Download Your receipt</a>
   </div> 
 
   <button (click)="task.pause()" class="button is-warning" [disabled]="!isActive(snap)">Pause</button>
