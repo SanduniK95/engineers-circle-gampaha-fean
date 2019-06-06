@@ -1,0 +1,22 @@
+.top-input {
+  margin-top: 5vw;
+}
+
+.contact-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.contact-full-width {
+  width: 100%;
+}
+
+mat-form-field {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  padding: 0.5vw;
+}
+
+.mat-button.btn.btn-lg, .btn-group-lg > .mat-button.btn, .btn-group-lg .mat-button.btn, .mat-raised-button.btn.btn-lg, .btn-group-lg > .mat-raised-button.btn, .btn-group-lg .mat-raised-button.btn, .mat-raised-button.btn:not([class*='mat-elevation-z']).btn-lg, .btn-group-lg > .mat-raised-button.btn:not([class*='mat-elevation-z']), .btn-group-lg .mat-raised-button.btn:not([class*='mat-elevation-z']), .btn.btn-lg, .btn-group-lg > .btn, .btn-group-lg .btn {
+  margin-top: 2vw;
+}

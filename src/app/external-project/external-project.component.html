@@ -11,8 +11,60 @@
   <!-- Navbar -->
   <landing-navbar></landing-navbar>
 
-  <!-- Contact Us section -->
-  <div class="section section-contact-us text-center">
+  <div class="section section-contact-us">
+    <div class="container">
+      <div class="row top-input">
+        <!-- External project description section -->
+        <div class="col-sm-6 col-md-6 col-lg">
+          <h2 class="title">Want to work with us?</h2>
+          <br>
+          <p class="description text-justify">
+            Your project is very important to us. <br>
+            <br>
+            Engineers' Circle Gampaha takes its CSR efforts serious and has conducted many a community level programmes
+            and schemes to support the varied requirements and groups. We have endeavored to touch almost all aspects of
+            CSR in our sustainability efforts including education, arts & culture, sports, communality development.
+          </p>
+        </div>
+
+        <!-- Contact Form section -->
+        <div class="col-sm-6 col-md-6 col-lg text-center ml-auto mr-auto">
+          <form class="contact-form">
+
+            <mat-form-field class="contact-full-width">
+              <input matInput placeholder="Full Name">
+            </mat-form-field>
+
+            <mat-form-field class="contact-full-width">
+              <input matInput placeholder="Email" [formControl]="emailFormControl" required>
+              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="contact-full-width">
+              <textarea matInput #message maxlength="256" placeholder="Tell us about your project"
+                [formControl]="messageFormControl" required></textarea>
+              <mat-error *ngIf="messageFormControl.hasError('required')">
+                Project description is <strong>required</strong>
+              </mat-error>
+              <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+            </mat-form-field>
+
+            <button mat-raised-button class="btn btn-success btn-block btn-lg">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- <div class="section section-contact-us text-center">
     <div class="container">
       <h2 class="title">Want to work with us?</h2>
       <p class="description">Your project is very important to us.</p>
@@ -29,12 +81,12 @@
               placeholder="Tell us about your project"></textarea>
           </div>
           <div class="send-button">
-            <a href="#pablo" class="btn btn-primary btn-round btn-block btn-lg">Send Message</a>
+            <a href="#pablo" class="btn btn-primary btn-block btn-lg">Send Message</a>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </body>
 
 </html>
