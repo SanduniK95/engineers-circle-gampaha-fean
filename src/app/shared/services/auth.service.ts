@@ -87,6 +87,12 @@ export class AuthService {
    
   }
 
+  getUserid(){
+    if (JSON.parse(localStorage.getItem('user')) !== null) {
+      return (JSON.parse(localStorage.getItem('user')).uid)
+    }
+  }
+
 
 
 

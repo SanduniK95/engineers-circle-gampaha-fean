@@ -11,6 +11,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {MatButtonModule} from '@angular/material/button';
 
+
+
+import { AngularFireStorageModule } from '@angular/fire/storage';
 // Firebase services + enviorment module
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -67,6 +70,7 @@ import { MemberLayoutComponent } from './layouts/member-layout/member-layout.com
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireStorageModule
   ],
   declarations: [
     AppComponent,
