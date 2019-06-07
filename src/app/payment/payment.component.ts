@@ -1,19 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,HostListener} from '@angular/core';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { tap } from 'rxjs/operators';
 import {AuthService} from '../shared/services/auth.service'
 import { Observable } from 'rxjs/Observable';
 import { finalize } from 'rxjs/operators';
+import {PaymentService} from '../shared/payment/payment.service'
+import {environment} from '../../environments/environment'
+
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-
+handler :any;
+amount = 500;
 
   ngOnInit() {
+    this.handler = StripeCheckout.configure({
+      key: environment.stripeKey,
+     // image: '/your/awesome/logo.jpg',
+      locale: 'auto',
+      token: token => {
+        this.paymentSvc.processPayment(token, this.amount)
+      }
+    });
   }
 
     // Main task 
@@ -30,8 +42,8 @@ export class PaymentComponent implements OnInit {
     // State for dropzone CSS toggling
     isHovering: boolean;
   
-    constructor(private storage: AngularFireStorage ,private db: AngularFirestore,private auth :AuthService) { }
-  
+    constructor(private storage: AngularFireStorage ,private db: AngularFirestore,private auth :AuthService,private paymentSvc: PaymentService) { }
+
     
     toggleHover(event: boolean) {
       this.isHovering = event;
@@ -61,9 +73,10 @@ export class PaymentComponent implements OnInit {
       this.percentage = this.task.percentageChanges();
       this.snapshot   = this.task.snapshotChanges().pipe(
         tap(snap => {
-          if (snap.bytesTransferred === snap.totalBytes) {
+          if (snap.bytesTransferred === snap.totalBytes) 
+          {
             // Update firestore on completion
-            this.db.collection('payment').add( { path, size: snap.totalBytes ,UserId:this.auth.getUserid()})
+            this.db.collection('payment-recipt').add( { path, size: snap.totalBytes ,UserId:this.auth.getUserid()})
           }
         })
       )
@@ -76,6 +89,18 @@ export class PaymentComponent implements OnInit {
     isActive(snapshot) {
       return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes
     }
+    handlePayment() {
+      this.handler.open({
+        name: 'Membership fees',
+        excerpt: 'Deposit Funds to Account',
+        amount: this.amount
+      });
+    }
+    @HostListener('window:popstate')
+    onPopstate() {
+      this.handler.close()
+    }
+  
 
 
     

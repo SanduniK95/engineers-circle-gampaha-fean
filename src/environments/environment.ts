@@ -16,6 +16,7 @@ export const environment = {
     projectId: "engineers-circle-gampaha-fean",
     storageBucket: "engineers-circle-gampaha-fean.appspot.com",
     messagingSenderId: "465713684074"
-  }
+  },
+  stripeKey:'pk_test_Z3KhhDxNMRvxkNcrTLZxwlSV000Wg1t5E6'
 };
 

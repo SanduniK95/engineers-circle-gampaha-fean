@@ -1,0 +1,47 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-8">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">My Profile</h4>
+                      <p class="card-category">Complete your profile</p>
+                  </div>
+                  <div class="card-body">
+                      <p class="card-category">Profile Picture</p>
+                      <div class="row">
+                          <div class="col-md-3">
+                              <img src={{curuser.photoURL}}>
+                          </div>
+                          
+                      </div>
+                      <form>
+                          <div class="row">
+                              
+                              <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Username" value={{curuser.displayName}}>
+                                  </mat-form-field>
+                              </div>
+                              
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Email" type="text" value={{curuser.email}}>
+                                </mat-form-field>
+                              </div>
+                              
+                          </div>
+                    
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+         
+         
+      </div>
+  </div>
+</div>
