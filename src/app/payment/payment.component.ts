@@ -61,7 +61,8 @@ export class PaymentComponent implements OnInit {
       this.percentage = this.task.percentageChanges();
       this.snapshot   = this.task.snapshotChanges().pipe(
         tap(snap => {
-          if (snap.bytesTransferred === snap.totalBytes) {
+          if (snap.bytesTransferred === snap.totalBytes) 
+          {
             // Update firestore on completion
             this.db.collection('payment').add( { path, size: snap.totalBytes ,UserId:this.auth.getUserid()})
           }

@@ -7,6 +7,7 @@ import {MemberDashboardComponent} from '../../member/member-dashboard/member-das
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import {ProjectCalenderComponent} from '../../member/project-calender/project-calender.component'
 import {PaymentComponent} from '../../payment/payment.component'
+import {MemberProfileComponent} from '../../member/member-profile/member-profile.component'
 import {
     MatButtonModule,
     MatInputModule,
@@ -34,7 +35,8 @@ import {
     declarations: [
         MemberDashboardComponent,
         ProjectCalenderComponent,
-        PaymentComponent
+        PaymentComponent,
+        MemberProfileComponent
     ]
 })
 
