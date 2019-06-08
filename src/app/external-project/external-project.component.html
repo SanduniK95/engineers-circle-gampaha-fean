@@ -39,7 +39,7 @@
 
             <mat-form-field class="contact-full-width">
               <input name="email" #email="ngModel" [(ngModel)]="externalprojectservice.externalProject.email" matInput
-                placeholder="Email" [formControl]="emailFormControl" required>
+                placeholder="Email" required>
               <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                 Please enter a valid email address
               </mat-error>
@@ -47,14 +47,16 @@
                 Email is <strong>required</strong>
               </mat-error>
             </mat-form-field>
-
             <mat-form-field class="contact-full-width">
-              <input matInput placeholder="Project Title">
+              <input name="projectTitle"  #projectTitle="ngModel" [(ngModel)]="externalprojectservice.externalProject.projectTitle"
+              matInput placeholder="Project Title">
             </mat-form-field>
 
+            
+
             <mat-form-field class="contact-full-width">
-              <textarea matInput #message maxlength="256" placeholder="Tell us about your project" rows="5"
-                [formControl]="messageFormControl" required></textarea>
+              <textarea matInput #message maxlength="256" placeholder="Tell us about your project" rows="5" name ="description"  #description="ngModel" [(ngModel)]="externalprojectservice.externalProject.description"
+                required></textarea>
               <mat-error *ngIf="messageFormControl.hasError('required')">
                 Project description is <strong>required</strong>
               </mat-error>
