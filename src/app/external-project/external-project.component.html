@@ -38,26 +38,23 @@
             </mat-form-field>
 
             <mat-form-field class="contact-full-width">
-              <input name="email" #email="ngModel" [(ngModel)]="externalprojectservice.externalProject.email" matInput
-                placeholder="Email" required>
-              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              <input name="email" #email="ngModel"
+                [(ngModel)]="externalprojectservice.externalProject.email" matInput placeholder="Email" required email>
+              <mat-error>
                 Please enter a valid email address
               </mat-error>
-              <mat-error *ngIf="emailFormControl.hasError('required')">
-                Email is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field class="contact-full-width">
-              <input name="projectTitle"  #projectTitle="ngModel" [(ngModel)]="externalprojectservice.externalProject.projectTitle"
-              matInput placeholder="Project Title">
             </mat-form-field>
 
-            
+            <mat-form-field class="contact-full-width">
+              <input name="projectTitle" #projectTitle="ngModel"
+                [(ngModel)]="externalprojectservice.externalProject.projectTitle" matInput placeholder="Project Title">
+            </mat-form-field>
 
             <mat-form-field class="contact-full-width">
-              <textarea matInput #message maxlength="256" placeholder="Tell us about your project" rows="5" name ="description"  #description="ngModel" [(ngModel)]="externalprojectservice.externalProject.description"
-                required></textarea>
-              <mat-error *ngIf="messageFormControl.hasError('required')">
+              <textarea matInput #message maxlength="256" placeholder="Tell us about your project" rows="5"
+                name="description" #description="ngModel"
+                [(ngModel)]="externalprojectservice.externalProject.description" required></textarea>
+              <mat-error>
                 Project description is <strong>required</strong>
               </mat-error>
               <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
