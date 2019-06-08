@@ -46,7 +46,11 @@
             </mat-form-field>
 
             <mat-form-field class="contact-full-width">
-              <textarea matInput #message maxlength="256" placeholder="Tell us about your project"
+              <input matInput placeholder="Project Title">
+            </mat-form-field>
+
+            <mat-form-field class="contact-full-width">
+              <textarea matInput #message maxlength="256" placeholder="Tell us about your project" rows="5"
                 [formControl]="messageFormControl" required></textarea>
               <mat-error *ngIf="messageFormControl.hasError('required')">
                 Project description is <strong>required</strong>
