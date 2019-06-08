@@ -5,45 +5,44 @@
                 <div class="card">
                     <div class="card-header card-header-danger">
                         <h4 class="card-title ">Add Project</h4>
-
                     </div>
 
-
-
-
-                        <div class="example-container">
-                                <form #addprojectForm="ngForm" (ngSubmit)="addprojectForm.valid && onSubmit(addprojectForm)">
-                                <mat-form-field>
-                                  <input name="projectName" #projectName="ngModel" [(ngModel)]="projectservice.project.projectName" matInput placeholder="Project Name" required>
-                                </mat-form-field>
-                                <mat-form-field>
-                                        <input name="date" #date="ngModel" [(ngModel)]="projectservice.project.date" type="date" matInput placeholder="Date" required>
-                                </mat-form-field>
-                                <mat-form-field>
-                                        <input name="venue" #venue="ngModel" [(ngModel)]="projectservice.project.venue" matInput placeholder="Venue" required>
-                                      </mat-form-field>
-                                <mat-form-field>
-                                  <textarea name="description" #description="ngModel" [(ngModel)]="projectservice.project.description" matInput placeholder="description" required></textarea>
-                                  
-                                </mat-form-field>
-                                <mat-form-field>
-                                    <input name="startTime" #startTime="ngModel" [(ngModel)]="projectservice.project.startTime" type="time" matInput placeholder="startTime" required>
+                    <div class="example-container">
+                        <form #addprojectForm="ngForm" (ngSubmit)="addprojectForm.valid && onSubmit(addprojectForm)">
+                            <mat-form-field>
+                                <input name="projectName" #projectName="ngModel"
+                                    [(ngModel)]="projectservice.project.projectName" matInput placeholder="Project Name"
+                                    required>
                             </mat-form-field>
                             <mat-form-field>
-                                <input name="endTime" #endTime="ngModel" [(ngModel)]="projectservice.project.endTime" type="time" matInput placeholder="endTime" required>
-                        </mat-form-field>
-                               <div>
-                                    <button type="submit" mat-raised-button color="primary">Submit</button>
-                               </div>
-                               </form>
-                              
-                                
-                              </div>
-                              
-                        </div>
-                        
-                        
-                   
+                                <input name="date" #date="ngModel" [(ngModel)]="projectservice.project.date" type="date"
+                                    matInput placeholder="Date" required>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input name="venue" #venue="ngModel" [(ngModel)]="projectservice.project.venue" matInput
+                                    placeholder="Venue" required>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <textarea name="description" #description="ngModel"
+                                    [(ngModel)]="projectservice.project.description" matInput placeholder="description"
+                                    required></textarea>
+
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input name="startTime" #startTime="ngModel"
+                                    [(ngModel)]="projectservice.project.startTime" type="time" matInput
+                                    placeholder="startTime" required>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input name="endTime" #endTime="ngModel" [(ngModel)]="projectservice.project.endTime"
+                                    type="time" matInput placeholder="endTime" required>
+                            </mat-form-field>
+                            <div>
+                                <button type="submit" mat-raised-button color="primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
             <div class="col-md-12">
                 <div class="card">
@@ -80,7 +79,7 @@
                                     <th>
                                         Update
                                     </th>
-                                    
+
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let r of Projects">
@@ -106,59 +105,69 @@
                                             <i class="material-icons" (click)="onDelete(r.projectId)">delete</i>
                                         </td>
                                         <td>
-                                                <i class="material-icons"(click)="open(content,r)"  >create</i>
-                                            </td>
-                                     
-                                  </tr>
-                              </tbody>
-                          </table>
-                          <ng-template #content let-modal>
+                                            <i class="material-icons" (click)="open(content,r)">create</i>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <ng-template #content let-modal>
                                 <div class="card-header card-header-danger">
-                                        <h4 class="card-title ">Update Project</h4>
-                                        
-                                    </div>
-                              
+                                    <h4 class="card-title ">Update Project</h4>
+
+                                </div>
+
                                 <div class="example-container">
-                                        <form #updateprojectForm="ngForm" (ngSubmit)="updateprojectForm.valid && onUpdate(updateprojectForm)">
-                                                
-                                                        <input name="projectId" #id="ngModel" [(ngModel)]="project.projectId" matInput placeholder="Project Name"  hidden>
-                                                      
+                                    <form #updateprojectForm="ngForm"
+                                        (ngSubmit)="updateprojectForm.valid && onUpdate(updateprojectForm)">
+
+                                        <input name="projectId" #id="ngModel" [(ngModel)]="project.projectId" matInput
+                                            placeholder="Project Name" hidden>
+
                                         <mat-form-field>
-                                          <input name="projectName" #projectName="ngModel" [(ngModel)]="project.projectName" matInput placeholder="Project Name" value="njnjn" required>
+                                            <input name="projectName" #projectName="ngModel"
+                                                [(ngModel)]="project.projectName" matInput placeholder="Project Name"
+                                                value="njnjn" required>
                                         </mat-form-field>
-    
+
                                         <mat-form-field>
-                                                <input name="date" #date="ngModel" [(ngModel)]="project.date" type="date" matInput placeholder="Date"  required>
-                                        </mat-form-field>
-                                        <mat-form-field>
-                                                <input name="venue" #venue="ngModel" [(ngModel)]="project.venue" matInput placeholder="Venue"required>
-                                              </mat-form-field>
-                                        <mat-form-field>
-                                          <textarea name="description" #description="ngModel" [(ngModel)]="project.description" matInput placeholder="description"  required></textarea>
-                                          
+                                            <input name="date" #date="ngModel" [(ngModel)]="project.date" type="date"
+                                                matInput placeholder="Date" required>
                                         </mat-form-field>
                                         <mat-form-field>
-                                            <input name="startTime" #startTime="ngModel" [(ngModel)]="project.startTime" type="time" matInput placeholder="startTime"  required>
-                                    </mat-form-field>
-                                    <mat-form-field>
-                                        <input name="endTime" #endTime="ngModel" [(ngModel)]="project.endTime" type="time" matInput placeholder="endTime"  required>
-                                </mat-form-field>
-                                       <div>
+                                            <input name="venue" #venue="ngModel" [(ngModel)]="project.venue" matInput
+                                                placeholder="Venue" required>
+                                        </mat-form-field>
+                                        <mat-form-field>
+                                            <textarea name="description" #description="ngModel"
+                                                [(ngModel)]="project.description" matInput placeholder="description"
+                                                required></textarea>
+
+                                        </mat-form-field>
+                                        <mat-form-field>
+                                            <input name="startTime" #startTime="ngModel" [(ngModel)]="project.startTime"
+                                                type="time" matInput placeholder="startTime" required>
+                                        </mat-form-field>
+                                        <mat-form-field>
+                                            <input name="endTime" #endTime="ngModel" [(ngModel)]="project.endTime"
+                                                type="time" matInput placeholder="endTime" required>
+                                        </mat-form-field>
+                                        <div>
                                             <button type="submit" mat-raised-button color="primary">Submit</button>
-                                       </div>
-                                       </form>
-                                      
-                                        
-                                      </div>
-                                      
-                               
-                              </ng-template>
-                         
-                          
-                      </div>
-                  </div>
-              </div>
-          </div>
-                  </div>
-              
-          </div>
+                                        </div>
+                                    </form>
+
+
+                                </div>
+
+
+                            </ng-template>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

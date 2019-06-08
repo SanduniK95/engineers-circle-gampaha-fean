@@ -5,7 +5,7 @@ module.exports.addExternalProject = (req, res, err) => {
   const externalProject = {
     fullName: req.body.fullName,
     email: req.body.email,
-    projectTitle = req.body.projectTitle,
+    projectTitle: req.body.projectTitle,
     description: req.body.description
   }
 
@@ -27,7 +27,7 @@ module.exports.getExternalProject = (req, res, next) => {
         externalProjectId: doc.id,
         fullName: doc.data().fullName,
         email: doc.data().email,
-        projectTitle = doc.data().projectTitle,
+        projectTitle: doc.data().projectTitle,
         description: doc.data().description,
       }
 
