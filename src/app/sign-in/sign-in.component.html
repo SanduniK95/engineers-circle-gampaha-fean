@@ -11,7 +11,92 @@
   <!-- Navbar -->
   <landing-navbar></landing-navbar>
 
-  <div class="displayTable">
+  <div align="center">
+    <mat-card class="signin-card">
+      <div align="center">
+        <mat-card-title>Sign In</mat-card-title>
+      </div>
+
+      <mat-card-content>
+        <form id="loginForm">
+
+          <mat-form-field class="contact-full-width formGroup">
+            <input type="text" class="formControl" matInput placeholder="Email" name="userName" #userName required>
+            <mat-error>
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="contact-full-width formGroup">
+            <input type="password" class="formControl" matInput placeholder="Password" name="userPassword" #userPassword
+              required>
+          </mat-form-field>
+
+          <div class="forgotPassword" align="start">
+            <span routerLink="/forgot-password">Forgot Password?</span>
+          </div>
+
+          <!-- Calling SignIn Api from AuthService -->
+          <button mat-raised-button class="btn btn-success formGroup" id="btnSubmit"
+            (click)="authService.SignIn(userName.value, userPassword.value)">Sign In</button>
+
+          <div class="formGroup">
+            <div class="or"><span class="orInner">Or</span></div>
+          </div>
+
+          <!-- Calling GoogleAuth Api from AuthService -->
+          <button mat-raised-button class="btn googleBtn formGroup" (click)="authService.GoogleAuth()">
+            Log in with Google
+          </button>
+        </form>
+
+        <mat-divider></mat-divider>
+
+        <div class="redirectToLogin">
+          <span>Don't have an account? <span class="redirect" routerLink="/sign-up">Sign Up</span></span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- <div class="col-sm-6 col-md-6 col-lg text-center ml-auto mr-auto authBlock">
+    <form id="loginForm">
+
+      <mat-form-field class="contact-full-width formGroup">
+        <input type="text" class="formControl" matInput placeholder="Email" name="userName" #userName required>
+        <mat-error>
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="contact-full-width formGroup">
+        <input type="password" class="formControl" matInput placeholder="Password" name="userPassword" #userPassword
+          required>
+      </mat-form-field>
+
+      <button mat-raised-button class="btn btn-success btn-block btn-lg formGroup" id="btnSubmit"
+        (click)="authService.SignIn(userName.value, userPassword.value)">Send Message</button>
+
+      <div class="formGroup">
+        <span class="or"><span class="orInner">Or</span></span>
+      </div>
+
+      <button type="button" class="btn googleBtn formGroup" (click)="authService.GoogleAuth()">
+        <i class="fab fa-google-plus-g"></i>
+        Log in with Google
+      </button>
+
+      <div class="forgotPassword">
+        <span routerLink="/forgot-password">Forgot Password?</span>
+      </div>
+    </form>
+
+    <div class="redirectToLogin">
+      <span>Don't have an account?<span class="redirect" routerLink="/sign-up"> Sign Up</span></span>
+    </div>
+  </div> -->
+
+  <!-- <div class="displayTable">
     <div class="displayTableCell">
       <div class="authBlock">
         <h3>Sign In</h3>
@@ -22,7 +107,7 @@
         <div class="formGroup">
           <input type="password" class="formControl" placeholder="Password" name="userPassword" #userPassword required>
         </div>
-        <!-- Calling SignIn Api from AuthService -->
+        
         <div class="formGroup">
           <input type="button" class="btn btnPrimary" value="Log in" id="btnSubmit"
             (click)="authService.SignIn(userName.value, userPassword.value)">
@@ -30,7 +115,7 @@
         <div class="formGroup">
           <span class="or"><span class="orInner">Or</span></span>
         </div>
-        <!-- Calling GoogleAuth Api from AuthService -->
+        
         <div class="formGroup">
           <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
             <i class="fab fa-google-plus-g"></i>
@@ -46,7 +131,7 @@
         <span>Don't have an account?<span class="redirect" routerLink="/sign-up"> Sign Up</span></span>
       </div>
     </div>
-  </div>
+  </div> -->
 </body>
 
 </html>
