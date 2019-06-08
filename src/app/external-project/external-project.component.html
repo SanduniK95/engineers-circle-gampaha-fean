@@ -29,14 +29,17 @@
 
         <!-- Contact Form section -->
         <div class="col-sm-6 col-md-6 col-lg text-center ml-auto mr-auto">
-          <form class="contact-form">
+          <form class="contact-form" #addexternalprojectForm="ngForm"
+            (ngSubmit)="addexternalprojectForm.valid && onSubmit(addexternalprojectForm)">
 
             <mat-form-field class="contact-full-width">
-              <input matInput placeholder="Full Name">
+              <input name="fullName" #fullName="ngModel" [(ngModel)]="externalprojectservice.externalProject.fullName"
+                matInput placeholder="Full Name">
             </mat-form-field>
 
             <mat-form-field class="contact-full-width">
-              <input matInput placeholder="Email" [formControl]="emailFormControl" required>
+              <input name="email" #email="ngModel" [(ngModel)]="externalprojectservice.externalProject.email" matInput
+                placeholder="Email" [formControl]="emailFormControl" required>
               <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                 Please enter a valid email address
               </mat-error>
@@ -65,32 +68,6 @@
     </div>
   </div>
 
-
-
-
-  <!-- <div class="section section-contact-us text-center">
-    <div class="container">
-      <h2 class="title">Want to work with us?</h2>
-      <p class="description">Your project is very important to us.</p>
-      <div class="row">
-        <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
-          <div class="input-group input-lg">
-            <input type="text" class="form-control" placeholder="Full Name">
-          </div>
-          <div class="input-group input-lg">
-            <input type="text" class="form-control" placeholder="Email">
-          </div>
-          <div class="textarea-container">
-            <textarea class="form-control" name="name" rows="4" cols="80"
-              placeholder="Tell us about your project"></textarea>
-          </div>
-          <div class="send-button">
-            <a href="#pablo" class="btn btn-primary btn-block btn-lg">Send Message</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 </body>
 
 </html>
