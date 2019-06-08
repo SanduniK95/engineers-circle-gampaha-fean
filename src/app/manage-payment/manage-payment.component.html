@@ -6,6 +6,20 @@
                               <div class="card-header card-header-danger">
                                   <h4 class="card-title ">Check the Validity of Recipts</h4>          
                               </div>
+                              <div >
+                              <mat-form-field>
+                                  <mat-label>Select the Year          
+                                    </mat-label>
+                                    <div>
+                                  <mat-select  (selectionChange)="onchange($event.value)">
+                                    <mat-option *ngFor="let year of years" [value]="year.value">
+                                      {{year.viewValue}}
+                                    </mat-option>
+                                  </mat-select>
+                                </div>
+                                </mat-form-field>
+                              </div>
+                             
                                   <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
@@ -18,7 +32,10 @@
                                             </th>
                                             <th>
                                                 Download Recipt
-                                            </th>                                          
+                                            </th>
+                                            <th>
+                                                Validity
+                                            </th>
                                             <th>
                                                 Check as valid
                                             </th>
@@ -31,13 +48,17 @@
                                                   {{r.userId}}
                                                   </td>
                                                   <td>
-                                                      {{r.userId}}
+                                                      {{r.username}}
                                                       </td>
                                                       <td>
                                                      <a href= {{r.downloadUrl}}> Link</a>    
                                                    </td>
                                                    <td>
-                                                      <i class="material-icons" (click)="onDelete(r.projectId)">done_outline</i>
+                                                     {{r.validity}}
+                                                   </td>
+                                                   <td>
+                                                      <button  mat-raised-button color="primary" (click)="setvalid(r.userId)">click</button>
+
                                                   </td>
                                                 
                                                   </tr>
@@ -48,6 +69,84 @@
                               </div>
                               </div>
                               </div>
+
+                              <div class="row">
+                                  <div class="col-md-12">
+                                          <div class="card">
+                                              <div class="card-header card-header-danger">
+                                                  <h4 class="card-title ">Not paid Members</h4>          
+                                              </div>
+
+
+
+                                              <div class="table-responsive">
+                                                  <table class="table">
+                                                      <thead class=" text-primary">
+                      
+                                                         
+                                                          <th>
+                                                              User Name
+                                                          </th>
+                                                          <th>
+                                                              Email
+                                                          </th>
+                                                         
+                                                          
+                      
+                                                      </thead>
+                                                      <tbody>
+                                                          <tr *ngFor="let r of notpaidmembers">
+                                                              <td>
+                                                                {{r.UserName}}
+                                                                </td>
+                                                                <td>
+                                                                    {{r.Email}}
+                                                                    </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                    </table>
+                                                                    </div>
+                                              </div>
+                                              </div>
+
+
+
+
                               </div>
+
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <div class="card">
+                                      <div class="card-header card-header-danger">
+                                          <h4 class="card-title ">Send Emails</h4>          
+                                      </div>
+                              <div class="col-sm-6 col-md-6 col-lg text-center ml-auto mr-auto">
+                                  <form class="contact-form" #mailform="ngForm"
+                                    (ngSubmit)="mailform.valid && onSubmit(mailform)">
+                        
+                                    <mat-form-field class="contact-full-width">
+                                      <input name="subject" #subject="ngModel" [(ngModel)]="mail.subject"
+                                        matInput placeholder="Subject">
+                                    </mat-form-field>
+                        
+                                   
+                        
+                                   
+                        
+                                    <mat-form-field class="contact-full-width">
+                                      <textarea matInput #message maxlength="256" placeholder="Body" rows="5"
+                                        name="body" #body="ngModel" [(ngModel)]="mail.body"  required></textarea>
+                                      <mat-error>
+                                        Project description is <strong>required</strong>
+                                      </mat-error>
+                                      <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+                                    </mat-form-field>
+                        
+                                    <button mat-raised-button class="btn btn-success" >Send Mails</button>
+                                  </form>
+                                </div>
                             </div>
-                          
+                          </div>
+                          </div>
+                          </div>
+                          </div>

@@ -18,7 +18,7 @@ export class PaymentComponent implements OnInit {
 handler :any;
 amount = 500;
 
-  ngOnInit() {
+  ngOnInit(){
     this.handler = StripeCheckout.configure({
       key: environment.stripeKey,
      // image: '/your/awesome/logo.jpg',
@@ -28,6 +28,8 @@ amount = 500;
       }
     });
   }
+
+
 
     // Main task 
     task: AngularFireUploadTask;
@@ -87,11 +89,14 @@ amount = 500;
     }
     submit(){
       this.downloadURL.subscribe(res=>{
-        this.db.collection('payment-recipt').doc(this.auth.getUserid()).set( {downloadUrl:res,year:(new Date()).getFullYear()}).then(res=>{
-          Swal.fire(
-            'Submitted Succesfully',
-            'success'
-          )
+        this.db.collection('payment-recipt').doc(this.auth.getUserid()).set( {downloadUrl:res,year:(new Date()).getFullYear(),userName:this.auth.getusername()}).then(res=>{
+          this.db.collection('users').doc(this.auth.getUserid()).update({ispaid:true}).then(res=>{
+            Swal.fire(
+              'Submitted Succesfully',
+              'success'
+            )
+          })
+         
         })
       })
       

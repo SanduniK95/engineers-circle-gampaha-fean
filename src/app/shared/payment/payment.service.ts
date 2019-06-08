@@ -15,15 +15,31 @@ export class PaymentService {
   }
 
   processPayment(token: any, amount: number) {
-    const payment = { token, amount,userId:this.userId }
+    const payment = { token, amount,userId:this.userId}
    // return this.db.list(`/payments/${this.userId}`).push(payment)
    this.db.collection('payments').doc(this.userId).set(payment)
+   this.db.collection('users').doc(this.userId).set({ispaid:true})
+
    console.log(payment)
   }
-  getreceipt(){
-    return this.http.get(environment.apiBaseUrl+'/getreceipts')
+  getreceipt(year){
+    return this.http.get(environment.apiBaseUrl+'/getreceipts/' +year)
 
   }
+
+  setvalid(id){
+    return this.http.put(environment.apiBaseUrl+'/updatepaymentstate/'+id,{})
+  }
+  getnotpaidusers(){
+    return this.http.get(environment.apiBaseUrl+'/notpaid')
+
+  }
+
+  sendmails(obj){
+    return this.http.get(environment.apiBaseUrl+'/sendemail',obj)
+  }
+
+
 
 
 }
