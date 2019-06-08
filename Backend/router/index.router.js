@@ -19,4 +19,8 @@ router.delete('/deleteuser/:projectId',Ctrluser.deleteuser)
 router.post('/addexternalproject', Ctrlexternalproject.addExternalProject)
 router.post('/getexternalproject', Ctrlexternalproject.getExternalProject)
 
+//report
+
+router.get('/getprojectsbymonth/:month',Ctrlproject.getprojectsbymonth)
+
 module.exports =router
