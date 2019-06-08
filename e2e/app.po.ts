@@ -6,6 +6,6 @@ export class MaterialDashboardAngularPage {
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('app-landing h1')).getText();
   }
 }

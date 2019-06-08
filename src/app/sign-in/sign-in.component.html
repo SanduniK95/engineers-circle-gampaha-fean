@@ -15,15 +15,16 @@
     <div class="displayTableCell">
       <div class="authBlock">
         <h3>Sign In</h3>
+        <form id="loginForm">
         <div class="formGroup">
-          <input type="text" class="formControl" placeholder="Username" #userName required>
+          <input type="text" class="formControl" placeholder="Email" name="userName" #userName required>
         </div>
         <div class="formGroup">
-          <input type="password" class="formControl" placeholder="Password" #userPassword required>
+          <input type="password" class="formControl" placeholder="Password" name="userPassword" #userPassword required>
         </div>
         <!-- Calling SignIn Api from AuthService -->
         <div class="formGroup">
-          <input type="button" class="btn btnPrimary" value="Log in"
+          <input type="button" class="btn btnPrimary" value="Log in" id="btnSubmit"
             (click)="authService.SignIn(userName.value, userPassword.value)">
         </div>
         <div class="formGroup">
@@ -39,6 +40,7 @@
         <div class="forgotPassword">
           <span routerLink="/forgot-password">Forgot Password?</span>
         </div>
+      </form>
       </div>
       <div class="redirectToLogin">
         <span>Don't have an account?<span class="redirect" routerLink="/sign-up"> Sign Up</span></span>

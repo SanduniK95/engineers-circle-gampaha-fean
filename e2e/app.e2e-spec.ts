@@ -7,8 +7,8 @@ describe('material-dashboard-angular App', () => {
     page = new MaterialDashboardAngularPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display Engineers\' Circle Gampaha', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Engineers\' Circle Gampaha');
   });
 });
