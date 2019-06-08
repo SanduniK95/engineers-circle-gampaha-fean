@@ -17,26 +17,22 @@ export class ExternalProjectComponent implements OnInit {
   ngOnInit() {
   }
 
-  messageFormControl = new FormControl('',
-    Validators.required);
-
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-
   onSubmit(form: NgForm) {
     console.log(form.value)
     this.externalprojectservice.postExternalProject(form.value).subscribe(
       res => {
         Swal.fire(
-          'Submitted Succesfully',
+          'Submitted Succesfully!',
+          'ECG will review your project request and contact you soon.',
           'success'
-        )
+        );
+        form.resetForm();
       },
       err => {
-        Swal.fire('Oops...', 'Something went wrong!', 'error')
-
+        Swal.fire('Oops...',
+        'Something went wrong!',
+        'error'
+        )
       }
     )
   }
