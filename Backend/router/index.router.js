@@ -22,7 +22,12 @@ router.post('/getexternalproject', Ctrlexternalproject.getExternalProject)
 //report
 
 router.get('/getprojectsbymonth/:month',Ctrlproject.getprojectsbymonth)
+//payment
+router.get('/getreceipts/:year',Ctrlreceipts.getreceipts)
+router.put('/updatepaymentstate/:userId',Ctrlreceipts.updatepaymentstate)
 
-router.get('/getreceipts',Ctrlreceipts.getreceipts)
+router.get('/notpaid',Ctrlreceipts.notpaid)
+
+router.post('/sendemail',Ctrlreceipts.sendemail)
 
 module.exports =router

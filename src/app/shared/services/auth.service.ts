@@ -86,6 +86,11 @@ export class AuthService {
     });
    
   }
+  getusername(){
+    if (JSON.parse(localStorage.getItem('user')) !== null) {
+      return (JSON.parse(localStorage.getItem('user')).displayName)
+    }
+  }
 
   getUserid(){
     if (JSON.parse(localStorage.getItem('user')) !== null) {
@@ -121,7 +126,7 @@ export class AuthService {
             }
           })
         });
-        //  this.SetUserData(result.user);
+         // this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -137,7 +142,7 @@ export class AuthService {
 
         this.SendVerificationMail();
         // isadmin=false
-        this.SetUserData(result.user);
+        this.SetUserData1(result.user);
 
       }).catch((error) => {
         window.alert(error.message)
@@ -199,13 +204,29 @@ export class AuthService {
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    const userData: User = {
+    const userData = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
       isadmin: false
+    }
+    return userRef.update(userData
+     
+    )
+  }
+
+  SetUserData1(user) {
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+    const userData: User = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      emailVerified: user.emailVerified,
+      isadmin: false,
+      ispaid:false,
     }
     return userRef.set(userData, {
       merge: true
