@@ -13,7 +13,9 @@ export const ROUTES: RouteInfo[] = [
     { path: '/table-list', title: 'Projects',  icon:'content_paste', class: '' },
     { path: '/typography', title: 'Project-Calender',  icon:'library_books', class: '' },
     { path: '/manage-users', title: 'Manage Customer Details',  icon:'person', class: '' },
-    { path: '/report', title: 'Report Generation',  icon:'book', class: '' }
+    { path: '/report', title: 'Report Generation',  icon:'book', class: '' },
+    { path: '/manage-payment', title: 'Manage Payment',  icon:'payment', class: '' }
+
     
 ];
 
