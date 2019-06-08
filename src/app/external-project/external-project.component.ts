@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./external-project.component.scss']
 })
 export class ExternalProjectComponent implements OnInit {
-  externalProject = externalProject;
+  externalProject : externalProject;
 
   constructor(private externalprojectservice: ExternalProjectsService) { }
 
@@ -26,6 +26,7 @@ export class ExternalProjectComponent implements OnInit {
   ]);
 
   onSubmit(form: NgForm) {
+    console.log(form.value)
     this.externalprojectservice.postExternalProject(form.value).subscribe(
       res => {
         Swal.fire(

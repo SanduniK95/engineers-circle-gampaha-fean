@@ -12,7 +12,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
-
+import {ReportComponent} from '../../report/report.component'
 import {
   MatButtonModule,
   MatInputModule,
@@ -43,6 +43,7 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    ReportComponent
   ]
 })
 
