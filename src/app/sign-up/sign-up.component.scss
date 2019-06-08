@@ -1,11 +1,74 @@
-html {
-  background-color: #F0F0F0;
+.contact-full-width {
+  width: 100%;
 }
 
-.btn .material-icons, .btn:not(.btn-just-icon):not(.btn-fab) .fa {
-  vertical-align: 0;
+mat-form-field {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  padding: 0.5vw;
+}
+
+.mat-raised-button.btn.btn-success {
+  margin-top: 10px;
+  width: 220px;
+}
+
+.signup-card {
+  max-width: 400px;
+  margin-top: 130px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.mat-card:not([class*='mat-elevation-z']) {
+  box-shadow: none;
+}
+
+mat-card {
+  border: 1px solid rgb(221, 221, 221);
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+
+.mat-raised-button.btn.googleBtn {
+  color: #E44034;
+  background-color: white;
+  border: #E44034 solid 1px;
+  width: 220px;
+}
+
+.mat-raised-button:not([class*='mat-elevation-z']) {
+  box-shadow: none;
+}
+
+.mat-raised-button.btn.googleBtn:hover{
+  box-shadow: none;
+  border: rgb(255, 101, 90) solid 1px;
+  color: rgb(255, 101, 90);
+}
+
+mat-card-title {
+  color: #4CAF50;
+}
+
+.or {
+  margin: 8px;
+}
+
+.redirect {
+  color: #4CAF50;
+}
+
+.redirect:hover {
+  cursor: pointer;
+  color: rgb(77, 190, 81);
+  text-decoration: underline;
+}
+
+.redirectToLogin {
+  padding: 15px;
 }
 
 .fa-google {
-  padding: 5px;
+  margin-bottom: -0.8em;
+  margin-left: -12px;
+  margin-right: 10px;
 }
