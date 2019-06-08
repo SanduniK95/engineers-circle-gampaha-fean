@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { finalize } from 'rxjs/operators';
 import {PaymentService} from '../shared/payment/payment.service'
 import {environment} from '../../environments/environment'
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-payment',
@@ -76,13 +77,25 @@ amount = 500;
           if (snap.bytesTransferred === snap.totalBytes) 
           {
             // Update firestore on completion
-            this.db.collection('payment-recipt').add( { path, size: snap.totalBytes ,UserId:this.auth.getUserid()})
+           // this.db.collection('payment-recipt').doc(this.auth.getUserid()).set( { path, size: snap.totalBytes})
           }
         })
       )
   
       // The file's download URL
       this.snapshot.pipe(finalize(() => this.downloadURL = this.storage.ref(path).getDownloadURL())).subscribe();
+    }
+    submit(){
+      this.downloadURL.subscribe(res=>{
+        this.db.collection('payment-recipt').doc(this.auth.getUserid()).set( {downloadUrl:res,year:(new Date()).getFullYear()}).then(res=>{
+          Swal.fire(
+            'Submitted Succesfully',
+            'success'
+          )
+        })
+      })
+      
+
     }
   
     // Determines if the upload task is active
