@@ -11,6 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -67,7 +69,9 @@ import { NavbarComponent } from './landing/navbar/navbar.component';
     MatInputModule,
     MatButtonModule,
     SlimLoadingBarModule,
+    MatCardModule,
     MatDialogModule,
+    MatDividerModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),
