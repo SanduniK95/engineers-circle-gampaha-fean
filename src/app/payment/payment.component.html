@@ -65,6 +65,7 @@
   <button (click)="task.pause()" class="button is-warning" [disabled]="!isActive(snap)">Pause</button>
   <button (click)="task.cancel()" class="button is-danger" [disabled]="!isActive(snap)">Cancel</button>
   <button (click)="task.resume()" class="button is-info"   [disabled]="!(snap?.state === 'paused')">Resume</button>
+  <button (click) ="submit()" >Submit</button>
 
 </div>
 </div>

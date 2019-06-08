@@ -1,0 +1,66 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+         
+                  
+
+                  <div class="col-md-12">
+                          <div class="card">
+                              <div class="card-header card-header-danger">
+                                  <h4 class="card-title ">Check the Validity of Recipts</h4>
+          
+                              </div>
+                                  <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+        
+                                            <th>
+                                                User Id
+                                            </th>
+                                            <th>
+                                                User Name
+                                            </th>
+                                            <th>
+                                                Download Recipt
+                                            </th>                                          
+                                            <th>
+                                                Check as valid
+                                            </th>
+                                            
+        
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let r of recepts">
+                                                <td>
+                                                  {{r.userId}}
+                                                  </td>
+                                                  <td>
+                                                      {{r.userId}}
+                                                      </td>
+                                                      <td>
+                                                     <a href= {{r.downloadUrl}}> Link</a>    
+                                                   </td>
+                                                   <td>
+                                                      <i class="material-icons" (click)="onDelete(r.projectId)">done_outline</i>
+                                                  </td>
+                                                
+                                                  </tr>
+
+                                            </tbody>
+                                            </table>
+                                    
+
+
+
+
+
+
+
+                          
+                              </div>
+                              </div>
+                              </div>
+                              </div>
+                              </div>
+                            </div>
+                          

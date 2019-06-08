@@ -4,7 +4,7 @@ var router = express.Router();
 const Ctrlproject = require('../controllers/project.controller')
 const Ctrluser =require('../controllers/user.controller')
 const Ctrlexternalproject = require('../controllers/external-project.controller')
-
+const Ctrlreceipts =require('../controllers/payment.controller')
 //project crud
 router.post('/addproject',Ctrlproject.addProject)
 router.put('/updateproject/:projectId',Ctrlproject.updateProject)
@@ -22,5 +22,7 @@ router.post('/getexternalproject', Ctrlexternalproject.getExternalProject)
 //report
 
 router.get('/getprojectsbymonth/:month',Ctrlproject.getprojectsbymonth)
+
+router.get('/getreceipts',Ctrlreceipts.getreceipts)
 
 module.exports =router
