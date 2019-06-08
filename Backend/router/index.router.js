@@ -28,6 +28,6 @@ router.put('/updatepaymentstate/:userId',Ctrlreceipts.updatepaymentstate)
 
 router.get('/notpaid',Ctrlreceipts.notpaid)
 
-router.get('/sendemail',Ctrlreceipts.sendemail)
+router.post('/sendemail',Ctrlreceipts.sendemail)
 
 module.exports =router
