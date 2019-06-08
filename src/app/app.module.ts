@@ -86,9 +86,6 @@ import { NavbarComponent } from './landing/navbar/navbar.component';
     LandingComponent,
     ExternalProjectComponent,
     NavbarComponent,
-   
-    
-
   ],
    
   providers: [AuthGuard, AuthService],

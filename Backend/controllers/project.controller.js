@@ -86,10 +86,7 @@ module.exports.getcalenderdata = (req, res, next) => {
   var projects=[]
   var ref =firebase.firestore().collection('projects')
   ref.get().then(snapshot => {
-    snapshot.forEach(doc => {
-     
-      
-         
+    snapshot.forEach(doc => {         
          var i =1
        
              var date =doc.data().date.toString()
@@ -103,19 +100,36 @@ module.exports.getcalenderdata = (req, res, next) => {
                  StartTime:StartTime.toDate(),
                  EndTime:EndTime.toDate(),
                  CategoryColor: '#7fa900'
- 
              }
-             
- 
              projects.push(obj)
-
-         i++
-  
-    
-        
-    
+         i++    
       });
      
+    res.send(projects)  
+  })
+}
+
+module.exports.getprojectsbymonth =(req,res,next)=>{
+  var projects=[]
+  var ref =firebase.firestore().collection('projects')
+  ref.get().then(snapshot => {
+    snapshot.forEach(doc => {
+     if(moment(doc.data().date.toString(),"YYYY-MM-DD").month()+1 ==  req.params.month){
+      var project ={
+        projectId:doc.id,
+        projectName:doc.data().projectName,
+        date:doc.data().date,
+        venue:doc.data().venue,
+        description:doc.data().description,
+        startTime:doc.data().startTime,
+    endTime:doc.data().endTime
+      }
+      projects.push(project)
+    
+    }
+    
+      });
+   
     res.send(projects)
    
   })

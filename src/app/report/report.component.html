@@ -1,3 +1,64 @@
-<p>
-  report works!
-</p>
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+         
+                  
+
+                  <div class="col-md-12">
+                          <div class="card">
+                              <div class="card-header card-header-danger">
+                                  <h4 class="card-title ">Reports</h4>
+          
+                              </div>
+                              <mat-form-field>
+                                <mat-label>Select the month           
+                                  </mat-label>
+                                  <div>
+                                <mat-select  (selectionChange)="onchange($event.value)">
+                                  <mat-option *ngFor="let month of months" [value]="month.value"  >
+                                    {{month.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </div>
+                              </mat-form-field>
+                              </div>
+
+
+                              </div>
+                              
+                              <div  class="col-md-9">
+                                  <div class="card-header card-header-danger">
+                                      <h4 class="card-title ">Month : {{month}}</h4>
+              
+                                  </div>
+                                <div class="card" *ngFor="let project of projects">
+                                    <h4 class="card-title ">Project Name : {{project.projectName}}</h4>
+                                    <h6 class="card-category text-gray">Venue : {{project.venue}}</h6>
+                                    <h6 class="card-category text-gray">Date : {{project.date}}</h6>
+
+
+                                    <p class="card-description">
+                                      description :
+                                        {{project.description}}
+                                    </p>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons text-danger"></i>
+                                            
+                                        </div>
+                                    </div>
+
+                                  </div>
+
+                              </div>
+                              <div *ngIf="start && projects?.length < 1" class="card-header card-header-danger">
+                                  <h4 class="card-title ">No projects for this month</h4>
+          
+                              </div>
+
+                              </div>
+                              <button *ngIf="projects?.length > 0" mat-raised-button color="primary" (click)="downloadReport()">Download report</button>
+
+                              </div>
+                              </div>
+                            

@@ -66,11 +66,14 @@ export class ProjectService {
           
       },
       err=>{
-  
-      }
-      
+      }   
   )
-  
   return proj
+  }
+
+  getprojectsbymonth(month)
+  {
+   return this.Http.get(environment.apiBaseUrl+'/getprojectsbymonth/'+month)
+    
   }
 }
