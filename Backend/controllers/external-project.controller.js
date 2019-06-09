@@ -30,10 +30,18 @@ module.exports.getExternalProject = (req, res, next) => {
         projectTitle: doc.data().projectTitle,
         description: doc.data().description,
       }
-
       externalProjects.push(externalProject)
     });
-
     res.send(externalProjects)
   })
+}
+
+module.exports.deleteExternalProject = (req, res, next) => {
+  firebase.firestore().collection('externalProjects').doc(req.params.externalProjectId).delete()
+    .then(function (docRef) {
+      res.send({ messege: "success" })
+    })
+    .catch(function (error) {
+      res.status(422).send(error)
+    });
 }
