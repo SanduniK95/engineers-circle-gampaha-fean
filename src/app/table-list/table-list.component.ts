@@ -38,9 +38,12 @@ export class TableListComponent implements OnInit {
     )
   }
 
-
+checkstartendtime(){
+  return (this.projectservice.project.startTime<this.projectservice.project.endTime)
+}
 
   onSubmit(form : NgForm){
+   if (this.checkstartendtime()){
     this.projectservice.postProject(form.value).subscribe(
       res=>{
         Swal.fire(
@@ -62,6 +65,12 @@ export class TableListComponent implements OnInit {
 
       }
     )
+    }
+    else{
+      Swal.fire('Oops...', 'End time must be larger than Start time', 'error')
+
+    }
+
   }
   onUpdate(form:NgForm){
     console.log(form.value)
