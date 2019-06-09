@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'external-project', component: ExternalProjectComponent },
+  { path: 'request-project', component: ExternalProjectComponent },
   // { path: 'dashboard', component: DashboardComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },

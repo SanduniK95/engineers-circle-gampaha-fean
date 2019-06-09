@@ -14,7 +14,6 @@ import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 
-
 import { AngularFireStorageModule } from '@angular/fire/storage';
 // Firebase services + enviorment module
 import { AngularFireModule } from "@angular/fire";

@@ -15,9 +15,10 @@ router.get('/getclaenderdata',Ctrlproject.getcalenderdata)
 router.put('/updateuser/:projectId',Ctrluser.updateUser)
 router.delete('/deleteuser/:projectId',Ctrluser.deleteuser)
 
-// External project CRUD
+// Project requests CRUD
 router.post('/addexternalproject', Ctrlexternalproject.addExternalProject)
-router.post('/getexternalproject', Ctrlexternalproject.getExternalProject)
+router.get('/getexternalproject', Ctrlexternalproject.getExternalProject)
+router.delete('/deleteexternalproject', Ctrlexternalproject.deleteExternalProject)
 
 //report
 
