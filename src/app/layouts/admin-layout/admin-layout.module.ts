@@ -14,6 +14,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import {ReportComponent} from '../../report/report.component'
 import {ManagePaymentComponent} from '../../manage-payment/manage-payment.component'
+import { ProjectRequestsComponent } from '../../project-requests/project-requests.component';
 import {
   MatButtonModule,
   MatInputModule,
@@ -45,7 +46,8 @@ import {
     NotificationsComponent,
     UpgradeComponent,
     ReportComponent,
-    ManagePaymentComponent
+    ManagePaymentComponent,
+    ProjectRequestsComponent
   ]
 })
 
