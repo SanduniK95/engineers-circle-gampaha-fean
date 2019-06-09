@@ -14,6 +14,13 @@ export class ProjectRequestsComponent implements OnInit {
   Projects: externalProject[]
   Project: externalProject
 
+User={
+  
+  ProjectName:'',
+  Email:'',
+  text:''
+}
+
   constructor(private externalProjectService: ExternalProjectsService, private modalService: NgbModal) { }
   closeResult: string;
 
@@ -68,6 +75,8 @@ export class ProjectRequestsComponent implements OnInit {
   // Reply to project request
   open(content, project) {
     this.Project = project
+    this.User.ProjectName=project.projectTitle
+    this.User.Email = project.email
     console.log(this.Project)
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -84,5 +93,16 @@ export class ProjectRequestsComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+
+
+  sendMail(){
+this.externalProjectService.sendmail(this.User).subscribe(res=>{
+  Swal.fire(
+    'Success',
+    'Send Succesfully.',
+    'success'
+  )
+})
   }
 }
