@@ -25,4 +25,8 @@ export class ExternalProjectsService {
   getExternalProjects() {
     return this.Http.get(environment.apiBaseUrl + '/getexternalproject')
   }
+
+  deleteExternalProject(projectid){
+    return this.Http.delete(environment.apiBaseUrl+'/deleteexternalproject/'+projectid)
+  }
 }

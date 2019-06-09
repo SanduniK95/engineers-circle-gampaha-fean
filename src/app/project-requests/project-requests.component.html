@@ -13,7 +13,7 @@
               <table class="table">
 
                 <thead class="text-primary">
-                  <th>Requester Name</th>
+                  <th>Requester's Name</th>
                   <th>Email</th>
                   <th>Project Title</th>
                   <th></th>
@@ -21,28 +21,19 @@
                 </thead>
 
                 <tbody>
-                  <tr *ngFor="let r of Users">
-                    <td>
-                      {{r.UserName}}
-                    </td>
-                    <td>
-                      {{r.Email}}
-                    </td>
-
-                    <td>
-                      <i class="material-icons" (click)="onDelete(r.userId)">delete</i>
-                    </td>
-                    <td>
-                      <i class="material-icons" (click)="open(content,r)">create</i>
-                    </td>
-
+                  <tr *ngFor="let p of Projects" (click)="expandRow()">
+                    <td> {{ p.fullName }} </td>
+                    <td> {{ p.email }} </td>
+                    <td> {{ p.projectTitle }} </td>
+                    <td> <i class="material-icons" (click)="onDelete(p.externalProjectId)">delete</i> </td>
+                    <td> <i class="material-icons" (click)="open(content, p)">reply</i> </td>
                   </tr>
                 </tbody>
               </table>
+
               <ng-template #content let-modal>
                 <div class="card-header card-header-danger">
-                  <h4 class="card-title ">Update User</h4>
-
+                  <h4 class="card-title ">Email Requesterr</h4>
                 </div>
 
                 <div class="example-container">
