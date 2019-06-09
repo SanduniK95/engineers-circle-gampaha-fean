@@ -18,7 +18,7 @@ router.delete('/deleteuser/:projectId',Ctrluser.deleteuser)
 // Project requests CRUD
 router.post('/addexternalproject', Ctrlexternalproject.addExternalProject)
 router.get('/getexternalproject', Ctrlexternalproject.getExternalProject)
-router.delete('/deleteexternalproject', Ctrlexternalproject.deleteExternalProject)
+router.delete('/deleteexternalproject/:externalProjectId', Ctrlexternalproject.deleteExternalProject)
 
 //report
 
@@ -30,5 +30,8 @@ router.put('/updatepaymentstate/:userId',Ctrlreceipts.updatepaymentstate)
 router.get('/notpaid',Ctrlreceipts.notpaid)
 
 router.post('/sendemail',Ctrlreceipts.sendemail)
+
+//external-project email
+router.post('/sendmail',Ctrlexternalproject.sendemail)
 
 module.exports =router

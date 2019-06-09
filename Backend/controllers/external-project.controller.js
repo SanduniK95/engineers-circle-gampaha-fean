@@ -1,5 +1,37 @@
 var firebase = require("firebase");
 var moment = require('moment');
+var nodemailer = require('nodemailer');
+
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'engineer.circle.gampaha@gmail.com',
+    pass: 'ucsc@123'
+  }
+});
+
+
+module.exports.sendemail =(req,res,next)=>{
+
+  var mailOptions = {
+    from: 'engineer.circle.gampaha@gmail.com',
+    to: req.body.Email,
+    subject: req.body.ProjectName,
+    text: req.body.text
+  };
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      res.status(422).send(error)
+    } else {
+      res.status(200).json(info)
+    }
+  });
+
+}
+
+
+
 
 module.exports.addExternalProject = (req, res, err) => {
   const externalProject = {
@@ -45,3 +77,6 @@ module.exports.deleteExternalProject = (req, res, next) => {
       res.status(422).send(error)
     });
 }
+
+
+

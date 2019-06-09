@@ -29,4 +29,7 @@ export class ExternalProjectsService {
   deleteExternalProject(projectid){
     return this.Http.delete(environment.apiBaseUrl+'/deleteexternalproject/'+projectid)
   }
+  sendmail(mail){
+    return  this.Http.post(environment.apiBaseUrl + '/sendmail', mail)
+  }
 }

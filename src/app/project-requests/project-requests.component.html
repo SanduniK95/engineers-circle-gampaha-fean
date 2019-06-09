@@ -37,23 +37,26 @@
                 </div>
 
                 <div class="example-container">
-                  <form #updateprojectForm="ngForm" (ngSubmit)="updateprojectForm.valid && onUpdate(updateprojectForm)">
+                  <form #updateprojectForm="ngForm" (ngSubmit)="updateprojectForm.valid && sendMail()">
 
-                    <input name="userId" #id="ngModel" [(ngModel)]="User.userId" matInput placeholder="Project Name"
-                      hidden>
+                    
 
                     <mat-form-field>
-                      <input name="UserName" #UserName="ngModel" [(ngModel)]="User.UserName" matInput
+                      <input name="ProjectName" #ProjectName="ngModel" [(ngModel)]="User.ProjectName" matInput
                         placeholder="Project Name" value="njnjn" required>
                     </mat-form-field>
 
                     <mat-form-field>
-                      <input name="Email" #date="ngModel" [(ngModel)]="User.Email" matInput placeholder="Email"
+                      <input name="Email" #Email="ngModel" [(ngModel)]="User.Email" matInput placeholder="Email"
+                        required>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input name="text" #text="ngModel" [(ngModel)]="User.text" matInput placeholder="Text"
                         required>
                     </mat-form-field>
 
                     <div>
-                      <button type="submit" mat-raised-button color="primary">Submit</button>
+                      <button type="submit" mat-raised-button color="primary">Send Mail</button>
                     </div>
                   </form>
                 </div>
