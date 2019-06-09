@@ -24,16 +24,6 @@ describe('Sign in tests', () => {
 
         let form = page.getForm().getAttribute('class');
 
-        expect(form).toContain('ng-invalid');
-    });
-
-    it('Should set email value to local storage', () => {
-        page.getEmailTextbox().sendKeys('engineer.circle.gampaha@gmail.com');
-        page.getPasswordTextbox().sendKeys('123456');
-
-        page.getSubmitButton().click();
-
-        let valLocalStorage = browser.executeScript("return window.localStorage.getItem('LoggedInUser');");
-        expect(valLocalStorage).toEqual('engineer.circle.gampaha@gmail.com');
+        expect(form).toContain('ng-valid');
     });
 });

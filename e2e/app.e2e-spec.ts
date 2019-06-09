@@ -1,6 +1,6 @@
 import { MaterialDashboardAngularPage } from './app.po';
 
-describe('material-dashboard-angular App', () => {
+describe('CSR Platform routing tests', () => {
   let page: MaterialDashboardAngularPage;
 
   beforeEach(() => {
