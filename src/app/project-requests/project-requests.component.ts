@@ -14,12 +14,11 @@ export class ProjectRequestsComponent implements OnInit {
   Projects: externalProject[]
   Project: externalProject
 
-User={
-  
-  ProjectName:'',
-  Email:'',
-  text:''
-}
+  User = {
+    ProjectName: '',
+    Email: '',
+    text: ''
+  }
 
   constructor(private externalProjectService: ExternalProjectsService, private modalService: NgbModal) { }
   closeResult: string;
@@ -52,7 +51,7 @@ User={
           res => {
             Swal.fire(
               'Deleted!',
-              'Your project has been deleted.',
+              'Project has been deleted.',
               'success'
             )
             this.externalProjectService.getExternalProjects().subscribe(
@@ -75,7 +74,7 @@ User={
   // Reply to project request
   open(content, project) {
     this.Project = project
-    this.User.ProjectName=project.projectTitle
+    this.User.ProjectName = project.projectTitle
     this.User.Email = project.email
     console.log(this.Project)
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
@@ -95,14 +94,13 @@ User={
     }
   }
 
-
-  sendMail(){
-this.externalProjectService.sendmail(this.User).subscribe(res=>{
-  Swal.fire(
-    'Success',
-    'Send Succesfully.',
-    'success'
-  )
-})
+  sendMail() {
+    this.externalProjectService.sendmail(this.User).subscribe(res => {
+      Swal.fire(
+        'Sent',
+        'Email sent succesfully!',
+        'success'
+      )
+    })
   }
 }
