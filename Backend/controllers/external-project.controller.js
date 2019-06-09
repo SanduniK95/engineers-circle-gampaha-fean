@@ -8,7 +8,10 @@ var transporter = nodemailer.createTransport({
   auth: {
     user: 'engineer.circle.gampaha@gmail.com',
     pass: 'ucsc@123'
-  }
+  },
+  tls: {
+    rejectUnauthorized: false
+}
 });
 
 
@@ -20,6 +23,7 @@ module.exports.sendemail =(req,res,next)=>{
     subject: req.body.ProjectName,
     text: req.body.text
   };
+
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
       res.status(422).send(error)
