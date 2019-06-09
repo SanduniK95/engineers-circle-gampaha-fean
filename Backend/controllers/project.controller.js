@@ -12,6 +12,7 @@ module.exports.addProject = (req, res, err) => {
     startTime:req.body.startTime,
     endTime:req.body.endTime
   }
+  console.log(project)
   firebase.firestore().collection('projects').add(project)
 .then(function(docRef) {
   res.send({ messege: "suceess" })
