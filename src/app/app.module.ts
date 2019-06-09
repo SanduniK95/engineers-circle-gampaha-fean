@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AngularFireStorageModule } from '@angular/fire/storage';
 // Firebase services + enviorment module
@@ -71,6 +72,7 @@ import { NavbarComponent } from './landing/navbar/navbar.component';
     MatCardModule,
     MatDialogModule,
     MatDividerModule,
+    MatTooltipModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),

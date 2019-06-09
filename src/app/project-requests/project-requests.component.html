@@ -16,47 +16,49 @@
                   <th>Requester's Name</th>
                   <th>Email</th>
                   <th>Project Title</th>
+                  <th>Description</th>
                   <th></th>
                   <th></th>
                 </thead>
 
                 <tbody>
-                  <tr *ngFor="let p of Projects" (click)="expandRow()">
+                  <tr *ngFor="let p of Projects">
                     <td> {{ p.fullName }} </td>
                     <td> {{ p.email }} </td>
                     <td> {{ p.projectTitle }} </td>
-                    <td> <i class="material-icons" (click)="onDelete(p.externalProjectId)">delete</i> </td>
-                    <td> <i class="material-icons" (click)="open(content, p)">reply</i> </td>
+                    <td> {{ p.description }} </td>
+                    <td> <i class="material-icons project-action" (click)="onDelete(p.externalProjectId)" title="Delete">delete</i> </td>
+                    <td> <i class="material-icons project-action" (click)="open(content, p)" title="Reply">reply</i> </td>
                   </tr>
                 </tbody>
               </table>
 
               <ng-template #content let-modal>
-                <div class="card-header card-header-danger">
-                  <h4 class="card-title ">Email Requesterr</h4>
+                <div class="card-header text-center">
+                  <h4 class="card-title">Reply to Project Request</h4>
                 </div>
 
-                <div class="example-container">
+                <div class="project-container">
                   <form #updateprojectForm="ngForm" (ngSubmit)="updateprojectForm.valid && sendMail()">
-
-                    
-
                     <mat-form-field>
                       <input name="ProjectName" #ProjectName="ngModel" [(ngModel)]="User.ProjectName" matInput
-                        placeholder="Project Name" value="njnjn" required>
+                        placeholder="Project Name" value="njnjn" required disabled>
                     </mat-form-field>
 
                     <mat-form-field>
                       <input name="Email" #Email="ngModel" [(ngModel)]="User.Email" matInput placeholder="Email"
-                        required>
+                        required disabled>
                     </mat-form-field>
                     <mat-form-field>
-                      <input name="text" #text="ngModel" [(ngModel)]="User.text" matInput placeholder="Text"
-                        required>
+                      <textarea matInput #message placeholder="Type your reply here..." rows="8"
+                      name="text" #text="ngModel" [(ngModel)]="User.text" required></textarea>
+                    <mat-error>
+                      Email body is <strong>required</strong>
+                    </mat-error>
                     </mat-form-field>
 
-                    <div>
-                      <button type="submit" mat-raised-button color="primary">Send Mail</button>
+                    <div align="right">
+                      <button type="submit" mat-raised-button class="btn btn-success">Send</button>
                     </div>
                   </form>
                 </div>
