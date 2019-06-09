@@ -122,7 +122,7 @@
                                       </div>
                               <div class="col-sm-6 col-md-6 col-lg text-center ml-auto mr-auto">
                                   <form class="contact-form" #mailform="ngForm"
-                                    (ngSubmit)="mailform.valid && onSubmit(mailform)">
+                                    (ngSubmit)="mailform.valid && onSubmit()">
                         
                                     <mat-form-field class="contact-full-width">
                                       <input name="subject" #subject="ngModel" [(ngModel)]="mail.subject"
@@ -142,7 +142,7 @@
                                       <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
                                     </mat-form-field>
                         
-                                    <button mat-raised-button class="btn btn-success" >Send Mails</button>
+                                    <button type="submit" mat-raised-button class="btn btn-success" >Send Mails</button>
                                   </form>
                                 </div>
                             </div>

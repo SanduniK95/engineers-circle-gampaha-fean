@@ -36,7 +36,7 @@ export class PaymentService {
   }
 
   sendmails(obj){
-    return this.http.get(environment.apiBaseUrl+'/sendemail',obj)
+    return this.http.post(environment.apiBaseUrl+'/sendemail',obj)
   }
 
 

@@ -49,8 +49,10 @@ console.log(res)
     })
       }
 
-      onSubmit(mail){
-        this.payment.sendmails(mail).subscribe(res=>{
+      onSubmit(){
+        event.preventDefault()
+        console.log(this.mail)
+        this.payment.sendmails(this.mail).subscribe(res=>{
           Swal.fire(
             'Submitted Succesfully',
             'success'
