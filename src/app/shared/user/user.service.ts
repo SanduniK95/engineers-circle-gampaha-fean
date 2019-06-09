@@ -7,18 +7,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class UserService {
 user={
-  first_name:'',
-  last_name:'',
   email:'',
-  password:'',
-  U_id:''
+  password:''
 
 }
 constructor(private Http :HttpClient) { }
 
-registeruser(user){
- return this.Http.post(environment.apiBaseUrl+'/registeruser',user)
-}
 updateuser(user){
   return this.Http.put(environment.apiBaseUrl+'/updateuser/'+user.u_id,user)
 
