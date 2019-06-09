@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { AngularFireStorageModule } from '@angular/fire/storage';
 // Firebase services + enviorment module
@@ -77,7 +78,8 @@ import { NavbarComponent } from './landing/navbar/navbar.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    MatDatepickerModule,
   ],
   declarations: [
     AppComponent,
@@ -92,7 +94,7 @@ import { NavbarComponent } from './landing/navbar/navbar.component';
     NavbarComponent,
   ],
    
-  providers: [AuthGuard, AuthService],
+  providers: [AuthGuard, AuthService,MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,6 +15,9 @@ import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import {ReportComponent} from '../../report/report.component'
 import {ManagePaymentComponent} from '../../manage-payment/manage-payment.component'
 import { ProjectRequestsComponent } from '../../project-requests/project-requests.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import{MatNativeDateModule} from '@angular/material'
+
 import {
   MatButtonModule,
   MatInputModule,
@@ -34,7 +37,10 @@ import {
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    ScheduleModule
+    ScheduleModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule
   ],
   declarations: [
     DashboardComponent,
@@ -48,7 +54,10 @@ import {
     ReportComponent,
     ManagePaymentComponent,
     ProjectRequestsComponent
-  ]
+  ],
+  providers: [  
+    MatDatepickerModule,  
+  ],
 })
 
 export class AdminLayoutModule {}
